@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>My shop</title>
+
+        <meta charset="UTF-8">
+        <meta name="description" content="My shop">
+        <meta name="keywords" content="cash, register, shop, store, bill, coins, money">
+        <meta name="author" content="Tanja Veljanovska Saveska">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="shopStyle.css">
+        <link href="https://fonts.googleapis.com/css?family=Righteous|Source+Sans+Pro" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="header" class="divDesign">
+            <h1>MY SHOP</h1>
+        </div>
+
+        <div id="divImage" class="divDesign">
+            <img id="image" src="https://cdn4.iconfinder.com/data/icons/business-and-finance-100/64/store_cash_register-512.png" alt="At the cash register">
+        </div>
+
+        <div id="divForm" class="divDesign">
+            <form>
+                <fieldset class="fieldsets">
+                    <legend class="legends">Enter an item</legend>
+                        <br>
+                        Quantity: <input class="inputs" id="quantity" type="number" name="quantityName" min="0.01" value="0" required> 
+                        <br>
+                        <br>
+                        Description: <input class="inputs" id="description" type="text" name="descriptionName" value="Item" required> 
+                        <br>
+                        <br>
+                        Rate: <input class="inputs" id="rate" type="number" name="rateName" min="0.01" value="0" required> 
+                        <br> 
+                        <br>                        
+                        <button class="btn" type="button" onclick="addNewItem()">ENTER</button>
+                        <br>
+                </fieldset>
+                <fieldset class="fieldsets">
+                    <legend class="legends">Delete the last item</legend>
+                        <br>
+                        <button class="btn" type="button" onclick="deleteLastItem()">DELETE</button>
+                        <br>
+                </fieldset>
+                <fieldset class="fieldsets">
+                    <legend class="legends">Delete all items</legend>
+                        <br>
+                        <button class="btn" type="button" onclick="deleteAllItems()">DELETE</button>
+                        <br>
+                </fieldset>
+            </form>
+        </div>
+
+        <div id="divItemList" class="divDesign">
+            <h3 id="headline3">BILL</h3>
+            <table id="itemsTable">
+                <tr>
+                    <th class="tableContent">Qty:</th>
+                    <th class="tableContent">Desription:</th>
+                    <th class="tableContent">Rate:</th>
+                    <th class="tableContent">Amount:</th>
+                </tr>
+            </table>
+            <table id="totalTable">
+                <th class="tableContent"></th>
+                <th class="tableContent"></th>
+                <th class="tableContent">Total:</th>
+                <th id="totalData" class="tableContent"></th>
+            </table>
+        </div>
+
+        <script src="shopScript.js"></script>
+    </body>
+
+</html>

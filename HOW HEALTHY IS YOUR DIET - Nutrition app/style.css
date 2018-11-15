@@ -1,0 +1,135 @@
+body {
+	margin: 0vw;
+}
+
+#container {
+	background-image: url('https://www.lifescapepremier.com/wp-content/uploads/2017/06/iStock-512628566.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	min-height: 100vh;
+	height: auto;
+	margin: 0vw;
+	padding: 0vw;
+	z-index: 1;
+}
+
+#layer {
+	background-color: rgba(77, 255, 151, 0.5);
+    width: 100%;
+	height: 100%;
+	min-height: 100vh;
+    margin: 0vw;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+	z-index: 2;
+}
+
+.main {
+	width: 50%;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 5vw;
+	border-radius: 10vw;
+	z-index: 3;
+	font-size: 1.5vw;
+	text-align: center;
+	color: #454343;
+	font-family: 'Poppins', sans-serif;
+}
+
+#divForm {
+	background-color: #4dff97;
+}
+
+#title {
+	font-family: 'Fahkwang', sans-serif;
+}
+
+#description {
+	font-size: 2.2vw;
+	color: #faf5f1;
+	font-family: 'Fahkwang', sans-serif;
+}
+
+.design {
+	background-color: #6bd192;
+	border: none;
+	border-radius: 10vw;
+	width: 20vw;
+	padding: 0.3vw;
+	text-align: center;
+	color: #454343;
+	font-size: 1.5vw;
+	font-family: 'Poppins', sans-serif;
+}
+
+.numbers {
+	width: 10vw;
+}
+
+#submit {
+	background-color: #ff5f4d;
+	border: none;
+	border-radius: 10vw;
+	padding: 1.2vw;
+	font-size: 1.8vw;
+	color: #faf5f1;
+	font-weight: bold;
+	font-family: 'Fahkwang', sans-serif;
+}
+
+#submit:hover {
+	color: #454343;
+}
+
+#message {
+	color: #faf5f1;
+}
+
+#divResult {
+	background-color: #ff5f4d;
+	display: none;
+}
+
+.resultHeadlines {
+	display: none;
+	color: #faf5f1;
+}
+
+.lists {
+	list-style-position: inside;
+	display: none;
+}
+
+@media screen and (max-width: 600px)
+{
+	.main {
+		width: 80%;
+		font-size: 3vw;
+	}
+
+	#description {
+		font-size: 4vw;
+	}
+
+	.design {
+		width: 50vw;
+		font-size: 3vw;
+	}
+
+	.numbers {
+		width: 30vw;
+	}
+
+	#submit {
+		font-size: 4vw;
+		padding: 2.5vw;
+	}
+}
+
+
+
+

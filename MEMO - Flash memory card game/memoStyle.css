@@ -1,0 +1,337 @@
+    
+            body {
+              background-image: url("https://i.ebayimg.com/00/s/MTAwOVgxNTAw/z/C1MAAOSw86Jafy1E/$_57.JPG?set_id=8800005007");
+              background-position: center; 
+              background-repeat: no-repeat; 
+              background-attachment: fixed;
+              background-size: cover; 
+              display: grid;
+              grid-column: 90vw;
+              justify-content: center;
+              margin: 0vw;
+              padding: 0vw;
+            }
+
+            .design {
+                background-color: transparent;
+                font-family: 'Niramit', sans-serif;
+                font-size: 1vw;
+                color: black;
+                text-align: center;
+            }
+
+            #header {
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+              justify-content: center;
+              align-items: center;
+            }
+
+            #headline {
+              color: red;
+              font-family: 'Spicy Rice', cursive;
+              font-size: 4vw;
+              margin-right: 2vw;
+            }
+
+            #btn {
+              margin-left: 2vw;
+              height: 4.5vw;
+              border: none;
+              border-radius: 1vw;
+              padding: 1vw;
+              background-color: red;
+              font-family: 'Niramit', sans-serif;
+              color: white;
+              font-size: 1.5vw;
+              font-weight: bold;
+            }
+
+            #btn:hover {
+              background-color: black;
+            }
+
+            #container {
+              opacity: 0.9;
+              display: grid;
+              justify-content: center;
+              align-items: center;
+              grid-template-columns: 6vw 6vw 6vw 6vw 6vw 6vw;
+              grid-template-rows: auto 7.5vw 7.5vw 7.5vw 7.5vw;
+              grid-template-areas: 
+                "congrat congrat congrat congrat congrat congrat"
+                "card1 card2 card3 card4 card5 card6"
+                "card7 card8 card9 card10 card11 card12"
+                "card13 card14 card15 card16 card17 card18"
+                "card19 card20 card21 card22 card23 card24";   
+              margin-bottom: 5vw;
+            }
+
+            #congratulations {
+              display: none;
+              grid-area: congrat; 
+              background-color: white;
+              opacity: 0.9;
+            }
+
+            #headlineCongrats {
+              font-family: 'Spicy Rice', cursive;
+              color: black;
+              font-size: 3vw;
+              text-align: center;
+              padding: 5vw;
+              padding-top: 10vw;
+              padding-bottom: 10vw;
+            }
+
+            .cards1 {
+              background-color: white;
+              height: 6.5vw;
+              width: 5vw;
+              margin: 0.5vw;
+              z-index: 10;
+            }
+
+            .cards2 {
+              background-color: black;
+              height: 6.5vw;
+              width: 5vw;
+              margin: 0.5vw;
+              z-index: 20;
+            }
+
+            #card1 {
+              grid-area: card1;
+            }
+
+            #card2 {
+              grid-area: card2;
+            }
+
+            #card3 {
+              grid-area: card3;
+            }
+
+            #card4 {
+              grid-area: card4;
+            }
+
+            #card5 {
+              grid-area: card5;
+            }
+
+            #card6 {
+              grid-area: card6;
+            }
+
+            #card7 {
+              grid-area: card7;
+            }
+
+            #card8 {
+              grid-area: card8;
+            }
+
+            #card9 {
+              grid-area: card9;
+            }
+
+            #card10 {
+              grid-area: card10;
+            }
+
+            #card11 {
+              grid-area: card11;
+            }
+
+            #card12 {
+              grid-area: card12;
+            }
+
+            #card13 {
+              grid-area: card13;
+            }
+
+            #card14 {
+              grid-area: card14;
+            }
+
+            #card15 {
+              grid-area: card15;
+            }
+
+            #card16 {
+              grid-area: card16;
+            }
+
+            #card17 {
+              grid-area: card17;
+            }
+
+            #card18 {
+              grid-area: card18;
+            }
+
+            #card19 {
+              grid-area: card19;
+            }
+
+            #card20 {
+              grid-area: card20;
+            }
+
+            #card21 {
+              grid-area: card21;
+            }
+
+            #card22 {
+              grid-area: card22;
+            }
+
+            #card23 {
+              grid-area: card23;
+            }
+
+            #card24 {
+              grid-area: card24;
+            }
+
+            #card101 {
+              grid-area: card1;
+            }
+
+            #card102 {
+              grid-area: card2;
+            }
+
+            #card103 {
+              grid-area: card3;
+            }
+
+            #card104 {
+              grid-area: card4;
+            }
+
+            #card105 {
+              grid-area: card5;
+            }
+
+            #card106 {
+              grid-area: card6;
+            }
+
+            #card107 {
+              grid-area: card7;
+            }
+
+            #card108 {
+              grid-area: card8;
+            }
+
+            #card109 {
+              grid-area: card9;
+            }
+
+            #card110 {
+              grid-area: card10;
+            }
+
+            #card111 {
+              grid-area: card11;
+            }
+
+            #card112 {
+              grid-area: card12;
+            }
+
+            #card113 {
+              grid-area: card13;
+            }
+
+            #card114 {
+              grid-area: card14;
+            }
+
+            #card115 {
+              grid-area: card15;
+            }
+
+            #card116 {
+              grid-area: card16;
+            }
+
+            #card117 {
+              grid-area: card17;
+            }
+
+            #card118 {
+              grid-area: card18;
+            }
+
+            #card119 {
+              grid-area: card19;
+            }
+
+            #card120 {
+              grid-area: card20;
+            }
+
+            #card121 {
+              grid-area: card21;
+            }
+
+            #card122 {
+              grid-area: card22;
+            }
+
+            #card123 {
+              grid-area: card23;
+            }
+
+            #card124 {
+              grid-area: card24;
+            }
+
+            @media only screen and (max-width: 600px) {
+              body {
+                height: 100vw;
+              }
+              #headline {
+                font-size: 6.5vh;
+                margin-right: 4vw;
+              }
+                         
+              #btn {
+                margin-left: 4vw;
+                height: 8vw;
+                padding: 2vw;
+                font-size: 2.5vw;              
+              }
+
+              .design {
+                font-size: 2vw;
+              }
+
+              #container {
+                grid-template-columns: 11vh 11vh 11vh 11vh 11vh 11vh;
+                grid-template-rows: auto 15vh 15vh 15vh 15vh;
+              }
+              
+              #headlineCongrats {
+                font-size: 5vw;
+              }
+
+              .cards1 {
+                height: 13vh;
+                width: 9vh;
+                margin: 1vh;
+              }
+
+              .cards2 {
+                height: 13vh;
+                width: 9vh;
+                margin: 1vh;
+              }
+            }
+      

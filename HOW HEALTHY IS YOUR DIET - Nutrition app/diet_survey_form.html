@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html>
+  
+<head>
+  <title>How healthy is your diet?</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Fahkwang|Poppins" rel="stylesheet">
+  
+  <meta charset="UTF-8">
+  <meta name="description" content="Diet Survey Form">
+  <meta name="keywords" content="health, diet, nutrition, fruits, vegetables, vitamins, minerals, protein, fat, carbs">
+  <meta name="author" content="Tanja Veljanovska-Saveska"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+
+<body>
+<div id="container">
+  <div id="layer">
+    <div id="divForm" class="main">
+  <h1 id="title">HOW HEALTHY IS YOUR DIET?</h1>
+  <p id="description">This questionnaire is designed to assess the nutritional value of your
+diet.</p>
+    <br>
+
+  <form id="survey-form">
+    <!--
+    <label id="name-label"><strong>Name:</strong> 
+    <input id="name" class="design" type="text"  required name="firstname" placeholder="Enter your first name">
+    </label>
+    <br>
+    <br>
+    
+    <label id="email-label">
+    <strong>E-mail:</strong> 
+    <input id="email" class="design" type="email" required name="email" placeholder="Enter your e-mail">
+    </label>
+    <br>
+    <br>
+
+    <label id="number-label">
+    <strong>Age:</strong> 
+    <input id="number" class="design numbers" type="number" required name="quantity" min="12" max="150" placeholder="Enter here">  
+    </label>
+    <br>
+    <br>
+
+    <label id="sex-label">
+    <strong>Sex:</strong> 
+    <input type="radio" name="gender" value="male"> Male 
+    <input type="radio" name="gender" value="female"> Female 
+    <input type="radio" name="gender" value="other" checked> Other 
+    </label>
+    <br>
+    <br>
+
+    <label id="height-label">
+    <strong>Height:</strong> 
+    <input class="design numbers" type="number" name="quantity" min="100" max="300" placeholder="Enter here"> <strong>cm</strong>
+    </label>
+    <br>
+    <br>
+
+    <label id="weight">
+    <strong>Weight:</strong> 
+    <input class="design numbers" type="number" name="quantity" min="25" max="300" placeholder="Enter here"> <strong>kg</strong>
+    </label>  
+    <br>
+    <br>
+
+    <label id="lifestyle">
+    <strong>Lifestyle:</strong>
+    <select id="dropdown" class="design" name="lifestyle">
+      <option class="design" value="sedentary">sedentary</option>
+      <option class="design" value="little active">somewhat active</option>
+      <option class="design" value="active">active</option>
+      <option class="design" value="veryActive">very active</option>
+    </select>
+    </label>
+    <br>
+    <br>
+
+    <label id="diets">
+    <strong>Were you recently/Are you on some type of diet?</strong><br>
+    <input type="checkbox" name="diet1" value="vegan"> I am/was on vegan diet<br>
+    <input type="checkbox" name="diet2" value="vegetarian"> I am/was on vegetarian diet<br>
+    <input type="checkbox" name="diet3" value="paleo"> I am/was on paleo diet<br>
+    <input type="checkbox" name="diet4" value="atkins"> I am/was on Atkins diet<br>
+    <input type="checkbox" name="diet5" value="chrono"> I am/was on chrono diet<br>
+    <input type="checkbox" name="diet6" value="other"> I am/was on other diet<br>
+    <input type="checkbox" name="diet7" value="none"> I am/was not on any specific type of diet<br>
+    </label>
+    <br>
+
+    <label id="comment">
+    <strong>If other, which type of diet?</strong><br>
+    <textarea class="design" name="message" rows="2">
+    </textarea>
+    </label>
+    <br>
+    <br>
+    -->
+
+    <label id="questions-label">
+    <strong>Do you skip breakfast more than once a week?</strong>
+    <br>
+    <input id="q11" type="radio" name="question1" value="yes"> Yes 
+    <input id="q12" type="radio" name="question1" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you skip lunch more than once a week?</strong> 
+    <br>
+    <input id="q21" type="radio" name="question2" value="yes"> Yes 
+    <input id="q22" type="radio" name="question2" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you skip evening meals more than once a week?</strong> 
+    <br>
+    <input id="q31" type="radio" name="question3" value="yes"> Yes 
+    <input id="q32" type="radio" name="question3" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you skip meals and snack instead on most days?</strong> 
+    <br>
+    <input id="q41" type="radio" name="question4" value="yes"> Yes 
+    <input id="q42" type="radio" name="question4" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you eat more than 5 portions of fruit and/or vegetables
+    every day?</strong>
+    <br> 
+    <em>Remember that fruit juice only counts as 1 portion a day, regardless
+    of how much you drink. The same applies to dried fruit.
+    Potatoes count as starchy foods and not as vegetables.
+    As a guide, a portion is about a handful.</em> 
+    <br>
+    <input id="q51" type="radio" name="question5" value="yes"> Yes 
+    <input id="q52" type="radio" name="question5" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you eat more than 4 different varieties of fruit each week?</strong>
+    <br>
+    <input id="q61" type="radio" name="question6" value="yes"> Yes 
+    <input id="q62" type="radio" name="question6" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you eat more than 4 different varieties of vegetables each week?</strong>
+    <br>
+    <input id="q71" type="radio" name="question7" value="yes"> Yes 
+    <input id="q72" type="radio" name="question7" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you choose low-fat pr 8 oducts when available?</strong>
+    <br>
+    <input id="q81" type="radio" name="question8" value="yes"> Yes 
+    <input id="q82" type="radio" name="question8" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you choose baked, steamed or grilled options when available,
+    rather than fried foods (such as crisps and snacks, or fish and chips)?</strong>
+    <br>
+    <input id="q91" type="radio" name="question9" value="yes"> Yes 
+    <input id="q92" type="radio" name="question9" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you opt for lean cuts of meat or remove visible fat – for example,
+    removing the skin on chicken or the rind on bacon?</strong>
+    <br>
+    <input id="q101" type="radio" name="question10" value="yes"> Yes 
+    <input id="q102" type="radio" name="question10" value="no"> No  
+    <br>
+    <br>
+    <strong>Did you eat any oily fish last week?</strong>
+    <br>
+    <em>Examples of oily fish include
+    salmon, mackerel, herring, sardines, trout, and fresh tuna.</em> 
+    <br>
+    <input id="q111" type="radio" name="question11" value="yes"> Yes 
+    <input id="q112" type="radio" name="question11" value="no"> No  
+    <br>
+    <br>
+    <!--
+    <strong>Do you include some unsalted nuts and seeds in your diet?</strong>
+    <br>
+    <input id="q121" type="radio" name="question12" value="yes"> Yes 
+    <input id="q122" type="radio" name="question12" value="no"> No  
+    <br>
+    <br>
+    -->
+    <strong>Do you base your main meals around starchy foods?</strong>
+    <br>
+    <em>For example, potatoes, pasta, rice or bread.</em> 
+    <br>
+    <input id="q131" type="radio" name="question13" value="yes"> Yes 
+    <input id="q132" type="radio" name="question13" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you regularly choose wholemeal bread or rolls rather than white?</strong>
+    <br>
+    <input id="q141" type="radio" name="question14" value="yes"> Yes 
+    <input id="q142" type="radio" name="question14" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you regularly eat wholegrain cereals, with no added sugar?</strong>
+    <br>
+    <input id="q151" type="radio" name="question15" value="yes"> Yes 
+    <input id="q152" type="radio" name="question15" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you regularly include pulses in your diet?</strong>
+    <br>
+    <em>For example, beans and lentils.</em>
+    <br>
+    <input id="q161" type="radio" name="question16" value="yes"> Yes 
+    <input id="q162" type="radio" name="question16" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you regularly eat sugar-coated breakfast cereals
+    or add sugar to your breakfast cereals?</strong>
+    <br>
+    <input id="q171" type="radio" name="question17" value="yes"> Yes 
+    <input id="q172" type="radio" name="question17" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you add sugar to your drinks?</strong>
+    <br>
+    <input id="q181" type="radio" name="question18" value="yes"> Yes 
+    <input id="q182" type="radio" name="question18" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you regularly drink sweet fizzy drinks?</strong>
+    <br>
+    <input id="q191" type="radio" name="question19" value="yes"> Yes 
+    <input id="q192" type="radio" name="question19" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you regularly eat cakes, sweets, chocolate or biscuits at work?</strong>
+    <br>
+    <input id="q201" type="radio" name="question20" value="yes"> Yes 
+    <input id="q202" type="radio" name="question20" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you regularly add salt to food during cooking?</strong>
+    <br>
+    <input id="q211" type="radio" name="question21" value="yes"> Yes 
+    <input id="q212" type="radio" name="question21" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you regularly add salt to meals at the table?</strong>
+    <br>
+    <input id="q221" type="radio" name="question22" value="yes"> Yes 
+    <input id="q222" type="radio" name="question22" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you regularly eat savoury snacks at work?</strong>
+    <br>
+    <em>For example, crisps or salted nuts.</em>
+    <br>
+    <input id="q231" type="radio" name="question23" value="yes"> Yes 
+    <input id="q232" type="radio" name="question23" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you regularly eat pre-prepared meals?</strong>
+    <br>
+    <em>For example, pre-prepared sandwiches, ready meals or canned soups.</em>
+    <br>
+    <input id="q241" type="radio" name="question24" value="yes"> Yes 
+    <input id="q242" type="radio" name="question24" value="no"> No  
+    <br>
+    <br>
+    <strong>Do you regularly eat processed meats such as ham or bacon,
+    or smoked fish?</strong>
+    <br>
+    <input id="q251" type="radio" name="question25" value="yes"> Yes 
+    <input id="q252" type="radio" name="question25" value="no"> No 
+    <br>
+    <br>
+    <strong>Do you have high blood pressure?</strong> 
+    <br>
+    <input id="q261" type="radio" name="question26" value="yes"> Yes 
+    <input id="q262" type="radio" name="question26" value="no"> No     
+    <br>
+    <br>
+    <strong>Do you drink plenty of fluids at regular intervals during
+    the working day?</strong>
+    <br>
+    <input id="q271" type="radio" name="question27" value="yes"> Yes 
+    <input id="q272" type="radio" name="question27" value="no"> No
+    <br>
+    <br>
+    <strong>Do you opt for a variety of different drinks, including water, at work?</strong> 
+    <br>
+    <input id="q281" type="radio" name="question28" value="yes"> Yes 
+    <input id="q282" type="radio" name="question28" value="no"> No     
+    <br>
+    <br>
+    <strong>Do you avoid sugary fizzy drinks?</strong>
+    <br>
+    <input id="q291" type="radio" name="question29" value="yes"> Yes 
+    <input id="q292" type="radio" name="question29" value="no"> No     
+    <br>
+    <br>
+    <strong>Do you drink less than 2-3 units of alcohol a day if you’re a woman,
+    or less than 3-4 units of alcohol a day if you’re a man?</strong>
+    <br>
+    <em>
+    1 unit of alcohol is equivalent to 100ml of 10% ABV
+    (alcohol by volume)</em>
+    <br>
+    <input id="q301" type="radio" name="question30" value="yes"> Yes 
+    <input id="q302" type="radio" name="question30" value="no"> No     
+    <br>  
+    </label>
+    <br>
+    <br>
+
+    <button id="submit" type="button" onclick="showResult()">Submit</button>
+    <br>
+    <p id="message"></p>
+</form> 
+
+    </div>
+
+    <div id="divResult" class="main">
+        <h1 id="headlineOptimalDiet" class="resultHeadlines">Your diet is optimal!</h1>
+        <h3 id="headlineAdvice" class="resultHeadlines">You may want to consider making some changes to your diet:</h3>
+        <p id="adviceOne"></p>
+        <p id="adviceTwo"></p>
+        <ul id="ulTwo" class="lists">
+          <li id="listTwoOne"></li>
+          <li id="listTwoTwo"></li>
+          <li id="listTwoThree"></li>
+          <li id="listTwoFour"></li>
+          <li id="listTwoFive"></li>
+          <li id="listTwoSix"></li>
+          <li id="listTwoSeven"></li>
+          <li id="listTwoEight"></li>
+        </ul>
+        <p id="adviceThree"></p>
+        <ul id="ulThree" class="lists">
+            <li id="listThreeOne"></li>
+            <li id="listThreeTwo"></li>
+            <li id="listThreeThree"></li>
+            <li id="listThreeFour"></li>
+            <li id="listThreeFive"></li>
+        </ul>
+        <p id="adviceFour"></p>
+        <ul id="ulFour" class="lists">
+            <li id="listFourOne"></li>
+            <li id="listFourTwo"></li>
+            <li id="listFourThree"></li>
+        </ul>
+        <p id="adviceFive"></p>
+        <p id="adviceSix"></p>
+        <p id="adviceSeven"></p>
+    </div>
+  </div>
+</div>
+
+  <script type="text/javascript" src="dietCode.js"></script>
+</body>  
+
+</html>
