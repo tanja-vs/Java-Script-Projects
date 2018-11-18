@@ -1,0 +1,93 @@
+		#body {
+			background-color: white;
+			margin: 0vw;
+			padding: 0vw;
+        }
+        
+        #divLogo {
+			background-color: white;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			align-items: center;
+		}
+
+		#imgLogo {
+			height: 5vw;
+			width: 5vw;
+			margin-left: 6vw;
+		}
+
+		#headlineLogo {
+			font-family: 'Abril Fatface', cursive;
+			font-size: 2.6vw;
+			color: #e83b52;
+			margin-left: 1.5vw;
+		}
+
+		#paragLogo {
+			font-family: 'Pattaya', sans-serif;
+			font-size: 2vw;
+			color: #6b6967;
+			margin-left: 2vw;
+        }
+        
+        #divLogIn, #divPersonalInfo {
+            background-color: #3be8ba;
+            color: #6b6967;
+            text-align: center;
+			font-family: 'Hind Siliguri', sans-serif;
+            font-size: 1.3vw;
+            border-radius: 6vw;
+            width: 30vw;
+            margin-top: 3vw;
+            margin-bottom: 5vw;
+			padding: 3vw 6vw 3vw 6vw;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #divPersonalInfo {
+            display: none;
+        }
+
+        #formLogIn, #formPersonalInfo {
+            font-weight: bold;
+        }
+
+        .inputs {
+            margin-left: 0.5vw;
+            margin-right: 0.2vw;
+            color: #6b6967;
+            text-align: center;
+			font-family: 'Hind Siliguri', sans-serif;
+            font-size: 1.1vw;
+            padding: 0.2vw;
+            border: none;
+            border-radius: 2vw;
+        }
+
+        #inputPregnant, #inputLactating, #pregnant, #lactating {
+            display: none;
+        }
+        
+        .btns {
+            background-color: #e83b52;
+            color: white;
+            font-family: 'Hind Siliguri', sans-serif;
+            font-size: 1.5vw;
+            font-weight: bold;
+            padding: 0.5vw 2vw 0.5vw 2vw;
+            border: none;
+            border-radius: 2vw;
+        }
+
+        .btns:hover {
+            color: #3be8ba;
+        }
+
+        #messageFillIn {
+            font-style: italic;
+        }
+
+

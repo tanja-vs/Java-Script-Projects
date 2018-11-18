@@ -7,51 +7,8 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Hind+Siliguri|Pattaya" rel="stylesheet">
 
-	<style>
-		#body {
-			background-color: white;
-			margin: 0vw;
-			padding: 0vw;
-		}
-
-		#container {
-			background-color: #3be8ba;
-			border-radius: 6vw;
-			font-family: 'Hind Siliguri', sans-serif;
-			color: #6b6967;
-			margin: 1vw 2vw 2vw 2vw;
-			padding: 3vw 6vw 0vw 6vw;
-		}
-
-		#divLogo {
-			background-color: white;
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			align-items: center;
-		}
-
-		#imgLogo {
-			height: 5vw;
-			width: 5vw;
-			margin-left: 6vw;
-		}
-
-		#headlineLogo {
-			font-family: 'Abril Fatface', cursive;
-			font-size: 2.6vw;
-			color: #e83b52;
-			margin-left: 1.5vw;
-		}
-
-		#paragLogo {
-			font-family: 'Pattaya', sans-serif;
-			font-size: 2vw;
-			color: #6b6967;
-			margin-left: 2vw;
-		}
-
-	</style>
+	<link rel="stylesheet" type="text/css" href="planty_style.css">
+	
 </head>
 
 <body>
@@ -64,55 +21,59 @@
 <div id="container">
 
 	<div id="divLogIn">
-		<h3>Welcome to the Planty's world!</h3>
+		<h2>Welcome to the Planty's world!</h2>
 		<p>Please log in first.</p>
+		<br>
 		<form id="formLogIn">
-			Name
-			<input id="inputName" type="text" name="name" placeholder="Please enter your name">
+			Name:
+			<input class="inputs" id="inputName" type="text" name="name" placeholder="Please enter your name">
 			<br>
 			<br>
-			E-mail
-			<input id="inputEmail" type="E-mail" name="email" placeholder="Please enter your E-mail">
+			E-mail:
+			<input class="inputs" id="inputEmail" type="E-mail" name="email" placeholder="Please enter your E-mail">
 			<br>
 			<br>
-			<button id="btnLogIn" type="button" onclick="logIn()">LogIn</button> 
+			<br>
+			<button class="btns" id="btnLogIn" type="button" onclick="logIn()">Log in</button> 
 			<p id="messageFillIn"></p>
+			<br>
 		</form>
 	</div>
 
 	<div id="divPersonalInfo">
-		<h3 id="personalGreeting">Hi!</h3>
+		<h2 id="personalGreeting">Hi!</h2>
 		<p>What are your daily nutrition requirements?</p>
-		<h4>Let's find out!</h4>
+		<h3>Let's find out!</h3>
+		<br>
 		<form id="formPersonalInfo">
-			Age
-			<input id="inputAge" type="number" name="age" min="12" max="150">
+			Age:
+			<input class="inputs" id="inputAge" type="number" name="age" min="12" max="150">
 			<br>
 			<br>
-			Sex
-			<select id="selectSex">
+			Sex:
+			<select class="inputs" id="selectSex" onchange="showCheckbox()">
 				<option value=""></option>
-				<option value="female">male</option>
-				<option value="male">female</option>
+				<option value="female">female</option>
+				<option value="male">male</option>
 			</select>
 			<br>
 			<br>
-			<input id="checkboxPregnant" type="checkbox" name="pregnant">Pregnant
+			<input class="inputs" id="inputPregnant" type="checkbox" name="pregnant"> <span id="pregnant">Pregnant</span>
 			<br>
 			<br>
-			<input id="checkboxLactating" type="checkbox" name="lactating">Lactating
+			<input class="inputs" id="inputLactating" type="checkbox" name="lactating"> <span id="lactating">Lactating</span>
 			<br>
 			<br>
-			Height
-			<input id="inputHeight" type="number" name="height" min="100" max="250"> cm
+			Height:
+			<input class="inputs" id="inputHeight" type="number" name="height" min="100" max="250"> cm
 			<br>
 			<br>
-			Weight
-			<input id="inputWeight" type="number" name="weight" min="20" max="300"> kg
+			Weight:
+			<input class="inputs" id="inputWeight" type="number" name="weight" min="20" max="300"> kg
 			<br>
 			<br>
-			Lifestyle
-			<select>
+			Lifestyle:
+			<select class="inputs" id="selectLifestyle">
 				<option value=""></option>
 				<option value="sedentary">sedentary</option>
 				<option value="littleActive">somewhat active</option>
@@ -121,7 +82,10 @@
 			</select>
 			<br>
 			<br>
-			<button id="btnCalculate" type="button" onclick="calculate()">Calculate</button>
+			<br>
+			<button class="btns" id="btnCalculate" type="button" onclick="calculate()">Calculate</button>
+			<p id="messageFillIn2"></p>
+			<br>
 		</form>
 	</div>
 
@@ -131,26 +95,7 @@
 
 </div>
 
-	<script>
-		function logIn() {
-			var checkName = document.getElementById("inputName").value;
-			var checkEmail = document.getElementById("inputEmail").value;
-			if (checkName === "" || checkEmail === "") {
-				document.getElementById("messageFillIn").innerHTML = "Please fill in the required fields."
-				return;
-			}
-			else {
-				document.getElementById("personalGreeting").innerHTML = "Hi, " + checkName + "!";
-			}
-		}
-
-		function calculate() {
-			var checkAge = document.getElementById("inputAge").value;
-			var checkSex = document.getElementById("selectSex").value;
-			var checkHeight = document.getElementById("inputHeight").value;
-			var checkWeight = document.getElementById("inputWeight").value;
-		}
-	</script>
+	<script src="planty_script.js"></script>
 </body>
 
 </html>
