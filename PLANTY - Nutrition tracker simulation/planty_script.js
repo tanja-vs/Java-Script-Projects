@@ -51,7 +51,8 @@
 
             else 
             {
-                alert("Go on");
+                document.getElementById("divPersonalInfo").style.display = "none";
+                document.getElementById("divDailyRequirement").style.display = "block";
             }
             
 		}

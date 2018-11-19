@@ -32,7 +32,7 @@
 			margin-left: 2vw;
         }
         
-        #divLogIn, #divPersonalInfo {
+        #divLogIn, #divPersonalInfo, #divDailyRequirement {
             background-color: #3be8ba;
             color: #6b6967;
             text-align: center;
@@ -47,7 +47,7 @@
             margin-right: auto;
         }
 
-        #divPersonalInfo {
+        #divPersonalInfo, #divDailyRequirement {
             display: none;
         }
 
@@ -63,6 +63,7 @@
 			font-family: 'Hind Siliguri', sans-serif;
             font-size: 1.1vw;
             padding: 0.2vw;
+            width: 20vw;
             border: none;
             border-radius: 2vw;
         }
