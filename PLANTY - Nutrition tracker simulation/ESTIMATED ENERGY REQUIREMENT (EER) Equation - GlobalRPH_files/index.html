@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<!-- saved from url=(0085)https://s0.2mdn.net/sadbundle/3228883702356377600/12062018-edifice-300x600/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="ad.size" content="width=300,height=600">
+	<meta name="click.through" content="bg-exit">
+	<title></title>
+	<link rel="stylesheet" href="https://s0.2mdn.net/sadbundle/3228883702356377600/12062018-edifice-300x600/index.html">
+	<style>
+		*, *:before, *:after {
+			margin: 0;
+			padding: 0;
+			border: 0;
+		}
+		body {
+			float: left;
+			width: 300px;
+			height: 600px;
+			position: relative;
+		}
+	
+		.ad-choices {
+            background: #efefef;
+            position: absolute;
+            right: 0px;
+			top: 0;
+            z-index: 9999;
+            width: 19px;
+            height: 15px;
+        }
+        
+        .ad-choices:hover {
+            color: #aaa;
+        }
+
+        .ad-choices__icon {
+            width: 12px;
+            height: 13px;
+            position: absolute;
+            left: 4px;
+			top: 1px;
+        }
+
+        .ad-choices__text {
+            display: none;
+            background: #efefef;
+            position: absolute;
+            right: 15px;
+            top: 0;
+            height: 15px;
+            line-height: 15px;
+            -moz-user-select: none;
+             -ms-user-select: none;
+                 user-select: none;
+            -webkit-user-select: none;
+            -moz-select: none;
+            -ms-select: none;
+            text-align: center;
+            font-family: Arial;
+            font-size: 11px;
+            color: #222;
+            width: 62px;
+            border-radius: 0 0 0 8px;
+            cursor: default;
+        }
+
+        .ad-choices:hover .ad-choices__text, .ad-choices__text:hover {
+            display: block;
+        }
+
+        .ad-choices__overlay-wrap {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            height: 182px;
+            width: 246px;
+            z-index: 9999;
+            background: #fff;
+            padding: 2px;
+        }
+
+        .ad-choices__overlay {
+            border: 2px solid #b4b4b4;
+            position: absolute;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            top: 2px;        
+        }
+
+        .overlay__adTrader-logo {
+            position: relative;
+			width: 112px;
+            left: 8px;
+            top: 6px;
+        }
+        .overlay__by-adtrader {
+            font-family: Arial;
+            font-size: 9px;
+            position: relative;
+            left: 9px;
+            top: 6px;
+        }
+
+        .overlay__text {
+            color: #222;
+            font-size: 11px;
+            font-weight: normal;
+            font-family: Arial;
+            text-align: left;
+            left: 8px;
+            top: 8px;
+            position: relative;
+            width: 223px;
+			line-height: 12px;
+        }
+
+
+        .overlay__text-boxes {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+			font-family: Arial;
+        }
+
+        .overlay__text-box {
+            position: relative;
+            height: 20px;
+            line-height: 20px;
+            border-top: 1px solid #b4b4b4;
+
+            font-size: 11px;
+            padding-left: 8px;
+        }
+
+        .overlay__text-box--last {
+            color: #222;
+            font-weight: normal;
+        }
+
+
+        .overlay__text-box a {
+            text-decoration: none;
+            font-family: Arial;
+            font-weight: bold;
+            color: #0000AF;
+        }
+
+        .overlay__text-box--last a {
+            text-decoration: underline;
+            font-family: Arial;
+            font-weight: normal;
+        }
+
+        .overlay__close-button {
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            font-family: Arial;
+            color: #4b4b4b;
+            font-size: 10px;
+            font-weight: bold;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .ad-choices__overlay-wrap.is-hidden {
+            display: none;
+        }
+
+        .ad-choices__overlay-wrap.is-visible {
+            display: block;
+        }
+
+        .overlay__close-button:target {
+            display: none;
+        }
+
+    </style>
+		
+		
+
+	
+	<script type="text/javascript">var clickTag = "https://www.mytime.mk/products/edifice?utm_source=AdTrader&utm_medium=12062018-edifice&utm_term=2018&utm_campaign=AdTrader"; </script>
+	
+	<script type="text/javascript">
+
+        (function() {
+            var relegateNavigation = '';
+            var handleClickTagMessage = function(e) {
+                try {
+                    var eventData = JSON.parse(e.data);
+                } catch (err) {
+                    return;
+                }
+                if (eventData.isInitClickTag) {
+                    if (eventData.clickTags) {
+                        for (var i = 0; i < eventData.clickTags.length; i++) {
+                            var clkTag = eventData.clickTags[i];
+                            window[clkTag.name] = clkTag.url;
+                        }
+                    } else if (eventData.clickTag) {
+                        window.clickTag = eventData.clickTag;
+                    }
+                    relegateNavigation = eventData.relegateNavigation;
+                }
+            };
+
+            if (open.call) {
+                window.open = function(open) {
+                    return function(url, name, features) {
+                        if (relegateNavigation === 'parent') {
+                            var message = {'clickTag': url, 'isPostClickTag': true};
+                            parent.postMessage(JSON.stringify(message), '*');
+                        } else {
+                            var args = [url, name];
+                            if (features) {
+                                args.push(features);
+                            }
+                            open.apply(window, args);
+                        }
+                    };
+                }(window.open);
+            }
+
+            if (window.addEventListener) {
+                window.addEventListener(
+                        'message', handleClickTagMessage, false);
+            } else {
+                window.attachEvent('onmessage', handleClickTagMessage);
+            }
+        })();
+
+</script> 
+	
+<script type="text/javascript">
+    
+      (function() {
+        var relegateNavigation = '';
+        var handleClickTagMessage = function(e) {
+          try {
+            var eventData = JSON.parse(e.data);
+          } catch (err) {
+            return;
+          }
+          if (eventData.isInitClickTag) {
+            if (eventData.clickTags) {
+              for (var i = 0; i < eventData.clickTags.length; i++) {
+                var clkTag = eventData.clickTags[i];
+                window[clkTag.name] = clkTag.url;
+              }
+            } else if (eventData.clickTag) {
+              window.clickTag = eventData.clickTag;
+            }
+            relegateNavigation = eventData.relegateNavigation;
+          }
+        };
+
+        if (open.call) {
+          window.open = function(open) {
+            return function(url, name, features) {
+              if (relegateNavigation === 'parent') {
+                var message = {'clickTag': url, 'isPostClickTag': true};
+                parent.postMessage(JSON.stringify(message), '*');
+              } else {
+                var args = [url, name];
+                if (features) {
+                  args.push(features);
+                }
+                open.apply(window, args);
+              }
+            };
+          }(window.open);
+        }
+
+        if (window.addEventListener) {
+          window.addEventListener(
+              'message', handleClickTagMessage, false);
+        } else {
+          window.attachEvent('onmessage', handleClickTagMessage);
+        }
+      })();
+    
+  </script></head>
+<body>
+		<a id="bg-exit" href="javascript:window.open(window.clickTag)">
+			<img src="./12062018-edifice-300x600.jpg" alt="">
+		</a>
+		
+		 <div class="ad-choices">
+        <img src="./adchoices.png" class="ad-choices__icon" style="">
+        <p class="ad-choices__text">AdChoices</p>
+    </div>
+
+    <div class="ad-choices__overlay-wrap is-hidden">
+        <div class="ad-choices__overlay">
+		<a id="AdT-ovl-logo-exit" href="https://adtrader.com/" target="_blank">
+            <img class="overlay__adTrader-logo" src="./AdTrader-logo.png">
+		</a>
+            <p class="overlay__text">This ad has been matched to your interests. It was selected for you based on your browsing activity. AdTrader and its partners helped the advertiser determine that you might be interested in an ad like this. </p>
+            <div class="overlay__text-boxes">
+                <p class="overlay__text-box"><a href="https://adtrader.com/ad_choices.html" target="_blank">More information and opt-out options &gt;&gt;</a></p>
+                <p class="overlay__text-box"><a href="https://adtrader.com/privacy.html" target="_blank">AdTrader Privacy Policy &gt;&gt;</a></p>
+                <p class="overlay__text-box overlay__text-box--last">Industry Resources: <a href="http://www.youronlinechoices.com/" target="_blank">EN</a> | <a href="http://www.aboutads.info/" target="_blank">US</a></p>
+            </div>
+        </div>
+        <button class="overlay__close-button">[ X ]</button>
+    </div>
+	
+<script>
+        var closeButton = document.getElementsByClassName("overlay__close-button")[0],
+            adChoicesButton = document.getElementsByClassName("ad-choices")[0],
+            overlayWrap = document.getElementsByClassName("ad-choices__overlay-wrap")[0];
+
+        closeButton.onclick = function(){
+            toggleClass(overlayWrap, "is-hidden");
+            toggleClass(overlayWrap, "is-visible");
+        }
+
+        adChoicesButton.onclick = function() {
+            toggleClass(overlayWrap, "is-hidden");
+            toggleClass(overlayWrap, "is-visible");
+        }
+
+        function toggleClass(element, className){
+            if (!element || !className){
+                return;
+            }
+            var classString = element.className, nameIndex = classString.indexOf(className);
+            if (nameIndex == -1) {
+                classString += ' ' + className;
+            }
+            else {
+                classString = classString.substr(0, nameIndex) + classString.substr(nameIndex+className.length);
+            }
+            element.className = classString;
+        }
+        
+    </script>
+ 
+
+</body></html>

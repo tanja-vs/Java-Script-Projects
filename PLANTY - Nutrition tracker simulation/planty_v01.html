@@ -51,17 +51,22 @@
 			<br>
 			<br>
 			Sex:
-			<select class="inputs" id="selectSex" onchange="showCheckbox()">
+			<select class="inputs" id="selectSex" onchange="showSelect()">
 				<option value=""></option>
 				<option value="female">female</option>
 				<option value="male">male</option>
 			</select>
 			<br>
 			<br>
-			<input class="inputs" id="inputPregnant" type="checkbox" name="pregnant"> <span id="pregnant">Pregnant</span>
-			<br>
-			<br>
-			<input class="inputs" id="inputLactating" type="checkbox" name="lactating"> <span id="lactating">Lactating</span>
+			<span id="pregnantLactating">Pregnant/Lactating:</span>
+			<select class="inputs" id="selectPregnantLactating"> 
+				<option value=""></option>
+				<option value="pregnant1">Pregnant (1st trimester)</option>
+				<option value="pregnant2">Pregnant (2nd trimester)</option>
+				<option value="pregnant3">Pregnant (3rd trimester)</option>
+				<option value="lactating1">Lactating (0-6 months postpartum)</option>
+				<option value="lactating2">Lactating (7-12 months postpartum)</option>
+			</select>
 			<br>
 			<br>
 			Height:
@@ -90,8 +95,8 @@
 	</div>
 
 	<div id="divDailyRequirement">
-		<h4>Your daily nutrition requirements are:</h4>
-		<table>
+		<h2>Your daily nutrition requirements:</h2>
+		<table id="tableDailyRequirement">
 			<tr>
 				<td>Calories:</td>
 				<td id="calories"></td>

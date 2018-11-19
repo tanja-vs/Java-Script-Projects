@@ -1,0 +1,564 @@
+/**
+ * aiXmlScrollView v1.4
+ *
+ * Copyright (c) 2015, Adicio, Inc.
+ */
+var aiXmlScrollView = function()
+{
+    this.outputElement = '';
+    this.container     = [];
+    this.cursor        = 0;
+
+    this.tags          = [];
+    this.tagValues     = [];
+    this.conditionals  = [];
+    this.items         = [];
+    this.itemRoot      = '';
+    this.limit         = false;
+
+    this.scroll             = true;
+    this.scrollDelay        = 25;
+    this.scrollIntermittent = false;
+    this.scrollDirection    = 'up';
+
+    this.outputFromString = function(xmlString)
+    {
+        if (window.ActiveXObject) {
+            this.xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+            this.xmlDoc.async=false;
+            this.xmlDoc.loadXML(xmlString);
+        } else {
+            var parser=new DOMParser();
+            this.xmlDoc=parser.parseFromString(xmlString,"text/xml");
+        }
+
+        this.items         = [];
+
+        this.build(this.xmlDoc.documentElement);
+        this.parse();
+        this.write();
+
+        if(this.scroll) {
+            this.startScroll();
+        }
+    };
+
+    this.build = function(tree)
+    {
+        if(tree.tagName == this.itemRoot) {
+            if(this.limit && this.items.length === this.limit) {
+                return;
+            }
+            this.items[this.items.length] = tree.tagName;
+        }
+        else if(this.array_key_exists(tree.tagName, this.tags))
+        {
+            if (tree.childNodes.length > 0) {
+                var txt = '';
+                for(var i = 0; i < tree.childNodes.length; i++) {
+                    switch(tree.childNodes[i].nodeType)
+                    {
+                        case 3:
+                        case 4:
+                            txt = tree.childNodes[i].nodeValue.trim();
+                            break;
+                    }
+                    if (txt.length > 0) {
+                        this.tagValues[tree.tagName][this.tagValues[tree.tagName].length] = txt;
+                        break;
+                    }
+                }
+                if (txt.length < 1) {
+                    this.tagValues[tree.tagName][this.tagValues[tree.tagName].length] = '';
+                }
+            } else {
+                this.tagValues[tree.tagName][this.tagValues[tree.tagName].length] = '';
+            }
+        }
+
+        for(var i=0;i<tree.childNodes.length; i++) {
+            this.build(tree.childNodes[i])
+        }
+    }
+
+    this.parse = function()
+    {
+        this.container = [];
+        this.cursor = 0;
+
+        for(i=0;i<this.items.length;i++)
+        {
+            for(keyVar in this.items)
+            {
+                var template = this.template;
+
+                for(varKey in this.tags)
+                {
+                    if(!this.tags.hasOwnProperty(varKey))
+                    {
+                        continue;
+                    }
+                    var replacement = this.tagValues[varKey][i];
+                    if(this.array_key_exists(varKey, this.conditionals) && this.trim(this.tagValues[varKey][i]) != '')
+                    {
+                        replacement = this.conditionals[varKey][0] + replacement + this.conditionals[varKey][1];
+                    }
+                    var search = new RegExp(this.tags[varKey], 'g');
+                    if ('undefined' == typeof replacement) {
+                        replacement = '';
+                    }
+                    template = template.replace(search, replacement);
+                }
+            }
+            this.container.push(template);
+        }
+
+    };
+
+    this.getOutputElementInternalHeight = function()
+    {
+        var height = 0;
+        var oe;
+        var styles = [];
+
+        if (this.outputElement.childNodes.length > 0) {
+            if (this.outputElement.childNodes.length > 1) {
+                for(var i = 0; i < this.outputElement.childNodes.length; i++) {
+                    oe = this.outputElement.childNodes[i];
+                    if (window.getComputedStyle) {
+                        styles[i] = window.getComputedStyle(oe);
+                    } else if (oe.currentStyle) {
+                        styles[i] = oe.currentStyle;
+                    }
+                    height += oe.offsetHeight;
+
+                    if (i > 0) {
+                        height += Math.ceil(Math.max(parseFloat(styles[i-1]['marginBottom']),  parseFloat(styles[i]['marginTop'])));
+                    } else {
+                        height += Math.ceil(parseFloat(styles[i]['marginTop']));
+                    }
+                }
+                height += Math.ceil(parseFloat(styles[this.outputElement.childNodes.length - 1]['marginBottom']));
+            } else {
+                oe = this.outputElement.childNodes[0];
+                styles[0] = window.getComputedStyle(oe);
+                height += Math.ceil(oe.offsetHeight + parseFloat(styles[0]['marginTop']) + parseFloat(styles[0]['marginBottom']));
+            }
+        }
+        return height;
+    }
+
+    this.getOutputElementInternalWidth = function()
+    {
+        var width = 0;
+        var oe;
+        var styles = [];
+
+        if (this.outputElement.childNodes.length > 0) {
+            if (this.outputElement.childNodes.length > 1) {
+                for(var i = 0; i < this.outputElement.childNodes.length; i++) {
+                    oe = this.outputElement.childNodes[i];
+                    if (window.getComputedStyle) {
+                        styles[i] = window.getComputedStyle(oe);
+                    } else if (oe.currentStyle) {
+                        styles[i] = oe.currentStyle;
+                    }
+                    width += oe.offsetWidth;
+
+                    if (i > 0) {
+                        width += Math.ceil(Math.max(parseFloat(styles[i-1]['marginLeft']),  parseFloat(styles[i]['marginRight'])));
+                    } else {
+                        width += Math.ceil(parseFloat(styles[i]['marginRight']));
+                    }
+                }
+                width += Math.ceil(parseFloat(styles[this.outputElement.childNodes.length - 1]['marginLeft']));
+            } else {
+                oe = this.outputElement.childNodes[0];
+                styles[0] = window.getComputedStyle(oe);
+                width += Math.ceil(oe.offsetWidth + parseFloat(styles[0]['marginRight']) + parseFloat(styles[0]['marginLeft']));
+            }
+        }
+        return width;
+    }
+
+    this.pushItem = function()
+    {
+        var item = this.nextItem();
+        if ('string' == typeof item && item.length > 0) {
+            this.outputElement.innerHTML += item;
+            return true;
+        }
+        return false;
+    }
+
+    this.write = function()
+    {
+        this.outputElement.innerHTML = '';
+
+        if ('left' == this.scrollDirection) {
+            if (this.outputElement.offsetWidth < 140 || this.outputElement.offsetWidth > 2000) {
+                this.logError('outputElement with id [ ' + this.outputElement.id + ' ] must have a width between 140 and 2000 inclusive');
+                return;
+            }
+        } else {
+            if (this.outputElement.offsetHeight < 140 || this.outputElement.offsetHeight > 2000) {
+                this.logError('outputElement with id [ ' + this.outputElement.id + ' ] must have a height between 140 and 2000 inclusive');
+                return;
+            }
+        }
+
+        this.cursor = 0;
+        if (this.container.length > 0) {
+            for (var i = 0; i < 50; i++) {
+                if (i == this.container.length) {
+                    this.disableScroll();
+                    break;
+                }
+                if (this.pushItem()) {
+                    if ('left' == this.scrollDirection) {
+                        var width = this.getOutputElementInternalWidth();
+                        if (width > this.outputElement.offsetWidth) {
+                            break;
+                        }
+                    } else {
+                        var height = this.getOutputElementInternalHeight();
+                        if (height > this.outputElement.offsetHeight) {
+                            break;
+                        }
+                    }
+                } else {
+                    this.logError('failed to load item [ ' + i + ' ]');
+                    break;
+                }
+            }
+        }
+    }
+
+    this.nextItem = function()
+    {
+        var item = '';
+        if (this.container.length > 0) {
+            this.cursor++;
+            this.cursor %= this.container.length;
+            item = this.container[this.cursor];
+        }
+        return item;
+    }
+
+    this.setOutputElement = function(element)
+    {
+        this.outputElement = document.getElementById(element);
+        this.outputElementId = element;
+    };
+
+    this.setOutPutElement = this.setOutputElement;  // alias
+
+    this.setTemplate = function(template)
+    {
+        this.template = template;
+    };
+
+    this.setItemRoot = function(root)
+    {
+        this.itemRoot = root;
+    };
+
+    this.declareVariable = function(tag, variable)
+    {
+        this.tags[tag] = variable;
+        this.tagValues[tag] = new Array();
+    };
+
+    this.declareConditionalVariable = function(tag, variable, pre, post)
+    {
+        this.tags[tag] = variable;
+        this.tagValues[tag] = new Array();
+        this.conditionals[tag] = new Array(pre, post);
+    };
+
+    this.setLimit = function(limit)
+    {
+        this.limit = limit;
+    };
+
+    this.setScrollIntermittent = function(seconds)
+    {
+        this.scrollIntermittent = seconds * 1000;
+    };
+
+    this.setScrollDelay = function(delay)
+    {
+        this.scrollDelay = delay;
+    };
+
+    this.setScrollDirection = function(direction)
+    {
+        this.scrollDirection = direction;
+    }
+
+    this.disableScroll = function()
+    {
+        this.scroll = false;
+        this.stopScroll();
+    };
+
+    this.array_key_exists = function(needle, haystack)
+    {
+        for (keyVar in haystack)
+        {
+            if (keyVar === needle) return true;
+        }
+        return false;
+    };
+
+    this.trim = function(string)
+    {
+        if (string) {
+            return string.replace(/^\s+|\s+$/g,"");
+        }
+        return '';
+    };
+
+    this.startScroll = function()
+    {
+        this.stopScroll();
+
+        this.startScrollTime = Date.now();
+        this.restartafterCount = false;
+
+        var obj = this;
+        if ('left' == this.scrollDirection) {
+            this.scrollTimeout = setTimeout(function() {obj.scrollTheFrameLeft();}, obj.scrollDelay);;
+        } else {
+            this.scrollTimeout = setTimeout(function() {obj.scrollTheFrameUp();}, obj.scrollDelay);;
+        }
+    };
+
+    this.stopScroll = function()
+    {
+        if (this.scrollTimeout) {
+            clearTimeout(this.scrollTimeout);
+            this.scrollTimeout = false;
+        }
+    };
+
+    this.scrollTheFrameUp = function()
+    {
+        if (false == this.scroll) {
+            this.stopScroll();
+            return;
+        }
+
+        var doScroll = true;
+
+        if (this.outputElement.offsetHeight < 140 || this.outputElement.offsetHeight > 2000) {
+            this.logError('outputElement with id [ ' + this.outputElement.id + ' ] must have a height between 140 and 2000 inclusive');
+            return;
+        }
+
+        if (this.scrollIntermittent) {
+            var diff = Date.now() - this.startScrollTime;
+            if ( (diff - this.scrollIntermittent) > 0) {
+                if (false === this.restartafterCount) {
+                    var offsetHeights = 0;
+                    for (this.restartafterCount = 0; this.restartafterCount < this.outputElement.childNodes.length; this.restartafterCount++) {
+                        var childOffsetHeight = this.outputElement.childNodes[this.restartafterCount].offsetHeight;
+                        if ((offsetHeights + childOffsetHeight) < this.outputElement.offsetHeight) {
+                            offsetHeights += childOffsetHeight;
+                        } else {
+                            break;
+                        }
+                    }
+                }
+            } else {
+                doScroll = false;
+            }
+        }
+
+        if (doScroll) {
+            if (this.outputElement.scrollHeight - this.outputElement.scrollTop == this.outputElement.clientHeight) {
+                this.pushItem();
+            }
+            this.outputElement.scrollTop++;
+
+            if (this.outputElement.childNodes.length > 1) {
+                if (this.outputElement.scrollTop == this.outputElement.childNodes[1].offsetTop - this.outputElement.childNodes[0].offsetTop) {
+                    this.outputElement.removeChild(this.outputElement.childNodes[0]);
+                    this.outputElement.scrollTop = 0;
+
+                    if (this.scrollIntermittent) {
+                        this.restartafterCount--;
+                        if (this.restartafterCount < 1) {
+                            this.startScrollTime = Date.now();
+                            this.restartafterCount = false;
+                        }
+                    }
+                }
+            }
+        }
+
+        var obj = this;
+        this.scrollTimeout = setTimeout(function() {obj.scrollTheFrameUp();}, obj.scrollDelay);;
+    }
+
+    this.scrollTheFrameLeft = function()
+    {
+        if (false == this.scroll) {
+            this.stopScroll();
+            return;
+        }
+
+        var doScroll = true;
+
+        if (this.outputElement.offsetWidth < 140 || this.outputElement.offsetWidth > 2000) {
+            this.logError('outputElement with id [ ' + this.outputElement.id + ' ] must have a width between 140 and 2000 inclusive');
+            return;
+        }
+
+        if (this.scrollIntermittent) {
+            var diff = Date.now() - this.startScrollTime;
+            if ( (diff - this.scrollIntermittent) > 0) {
+                if (false === this.restartafterCount) {
+                    var offsetWidths = 0;
+                    for (this.restartafterCount = 0; this.restartafterCount < this.outputElement.childNodes.length; this.restartafterCount++) {
+                        var childOffsetWidth = this.outputElement.childNodes[this.restartafterCount].offsetWidth;
+                        if ((offsetWidths + childOffsetWidth) < this.outputElement.offsetWidth) {
+                            offsetWidths += childOffsetWidth;
+                        } else {
+                            break;
+                        }
+                    }
+                }
+            } else {
+                doScroll = false;
+            }
+        }
+
+        if (doScroll) {
+            if (this.outputElement.scrollWidth - this.outputElement.scrollLeft == this.outputElement.clientWidth) {
+                this.pushItem();
+            }
+            this.outputElement.scrollLeft++;
+
+            if (this.outputElement.childNodes.length > 1) {
+                if (this.outputElement.scrollLeft == this.outputElement.childNodes[1].offsetLeft - this.outputElement.childNodes[0].offsetLeft) {
+                    this.outputElement.removeChild(this.outputElement.childNodes[0]);
+                    this.outputElement.scrollLeft = 0;
+
+                    if (this.scrollIntermittent) {
+                        this.restartafterCount--;
+                        if (this.restartafterCount < 1) {
+                            this.startScrollTime = Date.now();
+                            this.restartafterCount = false;
+                        }
+                    }
+                }
+            }
+        }
+
+        var obj = this;
+        this.scrollTimeout = setTimeout(function() {obj.scrollTheFrameLeft();}, obj.scrollDelay);;
+    }
+
+    this.logError = function(message)
+    {
+        console.log('Adicio aiXmlScrollView error: ' + message);
+    }
+
+};
+
+/**
+ * xmlScrollView 1.2 wrapper for aiXmlScrollView v1.4
+ *
+ * Copyright (c) 2015, Adicio, Inc.
+ */
+var xmlScrollView = function() {
+
+    this.parent = new aiXmlScrollView();
+
+    this.outputFromJSXMLProxy = function(stringVar, url) {
+        this.logError('this function [ outputFromJSXMLProxy ] has been deprecated');
+    };
+
+    this.outputFromString = function(xmlString)
+    {
+        if (this.parent.outputElement.offsetHeight < 140) {
+            this.parent.outputElement.style.height = '100%';
+        }
+        this.parent.outputElement.style.height = this.parent.outputElement.offsetHeight + "px";
+        this.parent.outputElement.style.overflow = "hidden";
+        this.parent.outputFromString(xmlString);
+    };
+
+    this.outputFromPath = function(xmlPath) {
+        this.logError('this function [ outputFromPath ] has been deprecated');
+    };
+
+    this.setOutPutElement = function(element)
+    {
+        this.parent.setOutputElement(element)
+    };
+
+    this.setTemplate = function(template)
+    {
+        this.parent.setTemplate(template);
+    };
+
+    this.setItemRoot = function(root)
+    {
+        this.parent.setItemRoot(root);
+    };
+
+    this.declareVariable = function(tag, variable)
+    {
+        this.parent.declareVariable(tag, variable);
+    };
+
+    this.declareConditionalVariable = function(tag, variable, pre, post)
+    {
+        this.parent.declareVariable(tag, variable, pre, post);
+    };
+
+    this.setLimit = function(limit)
+    {
+        this.parent.setLimit(limit);
+    };
+
+    this.setScrollIntermittent = function(frequency)
+    {
+        this.parent.setScrollIntermittent(frequency);
+    };
+
+    this.setScrollDelay = function(delay)
+    {
+        this.parent.setScrollDelay(delay);
+    };
+
+    this.disableScroll = function()
+    {
+        this.parent.disableScroll();
+    };
+
+    this.scroller = {
+
+        parent: this.parent,
+
+        startScroll: function()
+        { 
+            this.parent.startScroll();
+        },
+
+        stopScroll: function()
+        {
+            this.parent.stopScroll();
+        },
+
+    };
+
+    this.logError = function(message)
+    {
+        console.log('Adicio xmlScrollView error: ' + message);
+    }
+
+}
+

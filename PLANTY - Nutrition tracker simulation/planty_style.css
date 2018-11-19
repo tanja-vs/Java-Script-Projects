@@ -56,8 +56,7 @@
         }
 
         .inputs {
-            margin-left: 0.5vw;
-            margin-right: 0.2vw;
+            margin: 0.5vw 0.2vw 0vw 0.5vw;
             color: #6b6967;
             text-align: center;
 			font-family: 'Hind Siliguri', sans-serif;
@@ -68,7 +67,7 @@
             border-radius: 2vw;
         }
 
-        #inputPregnant, #inputLactating, #pregnant, #lactating {
+        #selectPregnantLactating, #pregnantLactating {
             display: none;
         }
         
@@ -87,8 +86,20 @@
             color: #3be8ba;
         }
 
-        #messageFillIn {
+        #messageFillIn, #messageFillIn2 {
             font-style: italic;
+        }
+
+        #tableDailyRequirement {
+            width: 70%;
+            margin-right: auto;
+            margin-left: auto;
+            text-align: left;
+        }
+
+        .tableHeaders {
+            text-align: center;
+            column-span: 2;
         }
 
 
