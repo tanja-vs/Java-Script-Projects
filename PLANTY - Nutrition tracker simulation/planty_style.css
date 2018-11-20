@@ -28,13 +28,13 @@
 		#paragLogo {
 			font-family: 'Pattaya', sans-serif;
 			font-size: 2vw;
-			color: #6b6967;
+			color: #4f4d4b;
 			margin-left: 2vw;
         }
         
-        #divLogIn, #divPersonalInfo, #divDailyRequirement {
+        #divLogIn, #divPersonalInfo, #divDailyRequirement, #divQuestion {
             background-color: #3be8ba;
-            color: #6b6967;
+            color: #4f4d4b;
             text-align: center;
 			font-family: 'Hind Siliguri', sans-serif;
             font-size: 1.3vw;
@@ -47,7 +47,7 @@
             margin-right: auto;
         }
 
-        #divPersonalInfo, #divDailyRequirement {
+        #divPersonalInfo, #divDailyRequirement, #divQuestion, #divFoodSelection {
             display: none;
         }
 
@@ -57,7 +57,7 @@
 
         .inputs {
             margin: 0.5vw 0.2vw 0vw 0.5vw;
-            color: #6b6967;
+            color: #4f4d4b;
             text-align: center;
 			font-family: 'Hind Siliguri', sans-serif;
             font-size: 1.1vw;
@@ -91,7 +91,7 @@
         }
 
         #tableDailyRequirement {
-            width: 70%;
+            width: 80%;
             margin-right: auto;
             margin-left: auto;
             text-align: left;
@@ -99,7 +99,9 @@
 
         .tableHeaders {
             text-align: center;
+            font-size: 1.5vw;
             column-span: 2;
+            padding: 1vw;
         }
 
 

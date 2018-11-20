@@ -47,7 +47,7 @@
 		<br>
 		<form id="formPersonalInfo">
 			Age:
-			<input class="inputs" id="inputAge" type="number" name="age" min="12" max="150">
+			<input class="inputs" id="inputAge" type="number" name="age" min="18" max="150">
 			<br>
 			<br>
 			Sex:
@@ -102,75 +102,75 @@
 				<td id="calories"></td>
 			</tr>
 			<tr>
-				<td>Total Carbohydrate</td>
+				<td>Total Carbohydrate (g)</td>
 				<td id="totalCarbohydrate"></td>
 			</tr>
 			<tr>
-				<td>Linoleic Acid</td>
+				<td>Linoleic Acid (g)</td>
 				<td id="linoleicAcid"></td>
 			</tr>
 			<tr>
-				<td>Alpha-Linoleic Acid</td>
+				<td>Alpha-Linoleic Acid (g)</td>
 				<td id="alfaLinoleicAcid"></td>
 			</tr>
 			<tr>
-				<td>Protein</td>
+				<td>Protein (g)</td>
 				<td id="protein"></td>
 			</tr>
 			<tr>
-				<td>Dietary Fiber</td>
+				<td>Dietary Fiber (g)</td>
 				<td id="dietaryFiber"></td>
 			</tr>
 			<tr>
 				<th class="tableHeaders">Vitamins</th>
 			</tr>
 			<tr>
-				<td>Vitamin A</td>
+				<td>Vitamin A (&#181;g)</td>
 				<td id="vitA"></td>
 			</tr>
 			<tr>
-				<td>Vitamin D</td>
+				<td>Vitamin D (&#181;g)</td>
 				<td id="vitD"></td>
 			</tr>
 			<tr>
-				<td>Vitamin E</td>
+				<td>Vitamin E (mg)</td>
 				<td id="vitE"></td>
 			</tr>
 			<tr>
-				<td>Vitamin K</td>
+				<td>Vitamin K (&#181;g)</td>
 				<td id="vitK"></td>
 			</tr>	
 			<tr>
-				<td>Vitamin C</td>
+				<td>Vitamin C (mg)</td>
 				<td id="vitC"></td>
 			</tr>
 			<tr>
-				<td>Vitamin B1</td>
+				<td>Vitamin B1 (mg)</td>
 				<td id="vitB1"></td>
 			</tr>
 			<tr>
-				<td>Vitamin B2</td>
+				<td>Vitamin B2 (mg)</td>
 				<td id="vitB2"></td>
 			</tr>	
 			<tr>
-				<td>Vitamin B3</td>
+				<td>Vitamin B3 (mg)</td>
 				<td id="vitB3"></td>
 			</tr>
 			<tr>
-				<td>Vitamin B5</td>
+				<td>Vitamin B5 (mg)</td>
 				<td id="vitB5"></td>
 			</tr>
 			<tr>
-				<td>Vitamin B6</td>
+				<td>Vitamin B6 (mg)</td>
 				<td id="vitB6"></td>
 			</tr>
 			<tr>
-				<td>Vitamin B9</td>
-				<td id="vitB5"></td>
+				<td>Vitamin B9 (&#181;g)</td>
+				<td id="vitB9"></td>
 			</tr>
 			<tr>
-				<td>Vitamin B12</td>
-				<td id="vitB6"></td>
+				<td>Vitamin B12 (&#181;g)</td>
+				<td id="vitB12"></td>
 			</tr>
 			<tr>
 				<th class="tableHeaders">Minerals</th>
@@ -216,6 +216,21 @@
 				<td id="sodium"></td>
 			</tr>
 		</table>
+		<br>
+		<br>
+		<button class="btns" id="btnNext" type="button" onclick="next()">Next</button>
+		<br>
+		<br>		
+	</div>
+
+	<div id="divQuestion">
+		<h2 id="personalQuestion">, what did you eat today?</h2>
+		<p>Have you met your nutritional needs?</p>
+		<h3>Let's find out!</h3>
+		<br>
+		<button class="btns" id="btnCheckMyDay" type="button" onclick="checkMyDay()">Check</button>
+		<br>
+		<br>
 	</div>
 
 	<div id="divFoodSelection">
