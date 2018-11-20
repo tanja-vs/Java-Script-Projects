@@ -41,7 +41,7 @@
 			else {
                 document.getElementById("divLogIn").style.display = "none";
                 document.getElementById("divPersonalInfo").style.display = "block";
-				document.getElementById("personalGreeting").innerHTML = "Hi, " + checkName.toUpperCase() + "!";
+				document.getElementById("personalGreeting").innerHTML = "HI, " + checkName.toUpperCase() + "!";
                 document.getElementById("personalQuestion").innerHTML = checkName.toUpperCase() + question;               
 			}
         }
