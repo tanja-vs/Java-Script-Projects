@@ -1,4 +1,32 @@
-		function logIn() {
+        var reqCalories = 0;
+        var reqTotalCarbohydrate = 0;
+        var reqLinoleicAcid = 0;
+        var reqAlphaLinoleicAcid = 0;
+        var reqProtein = 0;
+        var reqDietaryFiber = 0;
+        var reqVitA = 0;
+        var reqVitD = 0;
+        var reqVitE = 0;
+        var reqVitK = 0;
+        var reqVitB1 = 0;
+        var reqVitB2 = 0;
+        var reqVitB3 = 0;
+        var reqVitB5 = 0;
+        var reqVitB6 = 0;
+        var reqVitB9 = 0;
+        var reqVitB12 = 0;
+        var reqCa = 0;
+        var reqCu = 0;
+        var reqFe = 0;
+        var reqMg = 0;
+        var reqMn = 0;
+        var reqP = 0;
+        var reqSe = 0;
+        var reqZn = 0;
+        var reqK = 0;
+        var reqNa = 0;
+        
+        function logIn() {
 			var checkName = document.getElementById("inputName").value;
             var checkEmail = document.getElementById("inputEmail").value;
             
@@ -77,7 +105,6 @@
             var checkWeight = document.getElementById("inputWeight").value;
             var checkLifestyle = document.getElementById("selectLifestyle").value;
 
-            var reqCalories = 0;
             var activity = 0;
 
 			if (checkAge === "" || checkSex === "") {
@@ -96,7 +123,41 @@
 
                 if (checkSex === "male") {
                     reqCalories = 662 - (9.53 * checkAge) + activity * ( (15.91 * checkWeight) + (539.6 * checkHeight / 100) );
+
+                    if (checkAge > 70) {
+                        reqCa = 1200;
+                    }
+                    else {
+                        reqCa = 1000;
+                    }
+                    
+                    reqCu = 900;
+                    reqFe = 8;
+
+                    if (checkAge < 31) {
+                        reqMg = 400;
+                    }
+                    else {
+                        reqMg = 420;
+                    }
+                    
+                    reqMn = 2.3;
+                    reqP = 700;
+                    reqSe = 55;
+                    reqZn = 11;
+                    reqK = 4.7;
+
+                    if (checkAge > 30 && checkAge <= 70) {
+                        reqNa = 1.3;
+                    }
+                    else if (checkAge > 70) {
+                        reqNa = 1.2;
+                    }
+                    else {
+                        reqNa = 1.5;
+                    }
                 }
+
                 else if (checkSex === "female") {
                     reqCalories = 354 - (6.91 * checkAge) + activity * ( (9.36 * checkWeight) + (726 * checkHeight / 100) );
                    
@@ -118,9 +179,55 @@
                             reqCalories += 400;
                             break;
                     }
+                    
+                    if (checkAge > 50) {
+                        reqCa = 1200;
+                        reqFe = 8;
+                    }
+                    else {
+                        reqCa = 1000;
+                        reqFe = 18;
+                    }
+                    
+                    reqCu = 900;
+                    
+                    if (checkAge <= 30) {
+                        reqMg = 310;
+                    }
+                    else {
+                        reqMg = 320;
+                    }
+                    
+                    reqMn = 1.8;
+                    reqP = 700;
+                    reqSe = 55;
+                    reqZn = 8;
+                    reqK = 4.7;
+
+                    if (checkAge > 30 && checkAge <= 70) {
+                        reqNa = 1.3;
+                    }
+                    else if (checkAge > 70) {
+                        reqNa = 1.2;
+                    }
+                    else {
+                        reqNa = 1.5;
+                    }
+
                 }
                  
                 document.getElementById("calories").innerHTML = reqCalories.toFixed(2);
+
+                document.getElementById("calcium").innerHTML = reqCa;
+                document.getElementById("copper").innerHTML = reqCu;
+                document.getElementById("iron").innerHTML = reqFe;
+                document.getElementById("magnesium").innerHTML = reqMg;
+                document.getElementById("manganese").innerHTML = reqMn;
+                document.getElementById("phosphorus").innerHTML = reqP;
+                document.getElementById("selenium").innerHTML = reqSe;
+                document.getElementById("zinc").innerHTML = reqZn;
+                document.getElementById("potassium").innerHTML = reqK;
+                document.getElementById("sodium").innerHTML = reqNa;
             }
             
 		}
