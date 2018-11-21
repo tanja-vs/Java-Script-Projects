@@ -385,5 +385,6 @@
 
         function checkMyDay() {
             document.getElementById("divQuestion").style.display = "none";
-            document.getElementById("divFoodSelection").style.display = "block";  
+            document.getElementById("divFoodSelection").style.display = "block";
+            document.getElementById("divNutritionTracker").style.display = "block"; 
         }

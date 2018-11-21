@@ -12,14 +12,23 @@
 </head>
 
 <body>
+<header id="headerOne">	
 	<div id="divLogo">
 		<img id="imgLogo" src="https://i.pinimg.com/564x/bc/ff/2e/bcff2ecc7e689aae7725dfeb8748970a.jpg" alt="smiling carrot">
 		<h2 id="headlineLogo">PLANTY</h2>
 		<p id="paragLogo">Your personal nutrition tracker</p>
 	</div>
 
-<div id="container">
+	<nav>
+		<ul id="ulNav">
+			<li class="liNav"><a class="aNav" href="">LOG IN</a></li>
+			<li class="liNav"><a class="aNav" href="">SIGN UP</a></li>
+			<li class="liNav"><a class="aNav" href="">CONTACT</a></li>
+		</ul>
+	</nav>
+</header>
 
+<main id="mainOne">
 	<div id="divLogIn">
 		<h2>WELCOME TO THE PLANTY'S WORLD!</h2>
 		<p>Please log in first.</p>
@@ -46,46 +55,55 @@
 		<h3>Let's find out!</h3>
 		<br>
 		<form id="formPersonalInfo">
-			Age:
-			<input class="inputs" id="inputAge" type="number" name="age" min="18" max="150">
-			<br>
-			<br>
-			Sex:
-			<select class="inputs" id="selectSex" onchange="showSelect()">
-				<option value=""></option>
-				<option value="female">female</option>
-				<option value="male">male</option>
-			</select>
-			<br>
-			<br>
-			<span id="pregnantLactating">PG/LAC:</span>
-			<select class="inputs" id="selectPregnantLactating"> 
-				<option value=""></option>
-				<option value="pregnant1">Pregnant (1st trimester)</option>
-				<option value="pregnant2">Pregnant (2nd trimester)</option>
-				<option value="pregnant3">Pregnant (3rd trimester)</option>
-				<option value="lactating1">Lactating (0-6 months postpartum)</option>
-				<option value="lactating2">Lactating (7-12 months postpartum)</option>
-			</select>
-			<br>
-			<br>
-			Height:
-			<input class="inputs" id="inputHeight" type="number" name="height" min="100" max="250"> cm
-			<br>
-			<br>
-			Weight:
-			<input class="inputs" id="inputWeight" type="number" name="weight" min="20" max="300"> kg
-			<br>
-			<br>
-			Lifestyle:
-			<select class="inputs" id="selectLifestyle">
-				<option value=""></option>
-				<option value="sedentary">sedentary</option>
-				<option value="littleActive">somewhat active</option>
-				<option value="active">active</option>
-				<option value="veryActive">very active</option>
-			</select>
-			<br>
+			<table id="tablePersonalInfo">
+				<tr>
+					<td class="cellPI">Age:</td>
+					<td><input class="inputs" id="inputAge" type="number" name="age" min="18" max="150"></td>
+				</tr>
+				<tr>
+					<td class="cellPI">Sex:</td>
+					<td>
+						<select class="inputs" id="selectSex" onchange="showSelect()">
+							<option value=""></option>
+							<option value="female">female</option>
+							<option value="male">male</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="cellPI"><span id="pregnantLactating">PG/LAC:</span></td>
+					<td>
+						<select class="inputs" id="selectPregnantLactating"> 
+							<option value=""></option>
+							<option value="pregnant1">Pregnant (1st trimester)</option>
+							<option value="pregnant2">Pregnant (2nd trimester)</option>
+							<option value="pregnant3">Pregnant (3rd trimester)</option>
+							<option value="lactating1">Lactating (0-6 months postpartum)</option>
+							<option value="lactating2">Lactating (7-12 months postpartum)</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="cellPI">Height:</td>
+					<td><input class="inputs" id="inputHeight" type="number" name="height" min="100" max="250"> cm</td>
+				</tr>
+				<tr>
+					<td class="cellPI">Weight:</td>
+					<td><input class="inputs" id="inputWeight" type="number" name="weight" min="20" max="300"> kg</td>
+				</tr>
+				<tr>
+					<td class="cellPI">Lifestyle:</td>
+					<td>
+						<select class="inputs" id="selectLifestyle">
+							<option value=""></option>
+							<option value="sedentary">sedentary</option>
+							<option value="littleActive">somewhat active</option>
+							<option value="active">active</option>
+							<option value="veryActive">very active</option>
+						</select>
+					</td>
+				</tr>
+			</table>
 			<br>
 			<br>
 			<button class="btns" id="btnCalculate" type="button" onclick="calculate()">Calculate</button>
@@ -95,7 +113,7 @@
 	</div>
 
 	<div id="divDailyRequirement">
-		<h2>Your daily nutrition requirements:</h2>
+		<h2>YOUR DAILY NUTRITION REQUIREMENTS:</h2>
 		<table id="tableDailyRequirement">
 			<tr>
 				<td>Calories (kcal)</td>
@@ -233,35 +251,183 @@
 		<br>
 	</div>
 
+	<div id="container">
+
 	<div id="divFoodSelection">
-		<h2 id="pinkHeadline">WHAT HAVE YOU EATEN TODAY?<h2>
+		<h2 class="pinkHeadline">WHAT DO YOUR MEALS CONSIST OF TODAY?</h2>
 		<br>
 		<form id="formDailyFood">
 			Grains:
-			<select class="inputs" id="selectGrains">
+			<select class="inputsDF" id="selectGrains">
 				<option value=""></option>
-				<option value="oats">Oats</option>
-				<option value="rice">Rice</option>
-				<option value="quinoa">Quinoa</option>
+				<option value="oatsR">Oats, raw</option>
+				<option value="riceR">Rice, raw</option>
+				<option value="quinoaR">Quinoa, raw</option>
 			</select>
 			Vegetables:
-			<select class="inputs" id="selectVegetables">
+			<select class="inputsDF" id="selectVegetables">
 				<option value=""></option>
-				<option value="broccoli">Broccoli</option>
-				<option value="carrot">Carrot</option>
-				<option value="potato">Potato</option>
+				<option value="broccoliR">Broccoli, raw</option>
+				<option value="carrotR">Carrot, raw</option>
+				<option value="potatoR">Potato, raw</option>
 			</select>
 			Fruits:
-			<select class="inputs" id="selectFruits">
+			<select class="inputsDF" id="selectFruits">
 				<option value=""></option>
-				<option value="apple">Apple</option>
-				<option value="banana">Banana</option>
-				<option value="orange">Orange</option>
+				<option value="appleR">Apple</option>
+				<option value="bananaR">Banana</option>
+				<option value="orangeR">Orange</option>
 			</select>
+		</form>
+		<br>
+		<br>
+		<form id="formMyPlate">
+			<table id="tableMyPlate">
+				<tr>
+					<th class="tableHeadersNT pinkHeadline" id="tableHeaderArticals">Artical</th>
+					<th class="tableHeadersNT pinkHeadline" id="tableHeaderQuantity">Quantity</th>
+					<th class="tableHeadersNT"></th>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input class="inputsMyPlate" type="number" name="" value="100"> g</td>
+					<td><a class="aDelete" href="">Delete</a></td>
+				</tr>
+			</table>
 		</form>
 	</div>
 
-</div>
+	<div id="divNutritionTracker">
+		<h2 class="pinkHeadline">DAILY NUTRITION TRACKING</h2>
+		<table id="tableNutritionTracker">
+			<tr>
+				<td class="cellWidth">Calories</td>
+				<td id="caloriesNT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Total Carbohydrate</td>
+				<td id="totalCarbohydrateNT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Linoleic Acid</td>
+				<td id="linoleicAcidNT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Alpha-Linoleic Acid</td>
+				<td id="alfaLinoleicAcidNT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Protein</td>
+				<td id="proteinNT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Dietary Fiber</td>
+				<td id="dietaryFiberNT"></td>
+			</tr>
+			<tr>
+				<th class="tableHeaders">Vitamins</th>
+			</tr>
+			<tr>
+				<td class="cellWidth">Vitamin A</td>
+				<td id="vitANT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Vitamin D</td>
+				<td id="vitDNT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Vitamin E</td>
+				<td id="vitENT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Vitamin K</td>
+				<td id="vitKNT"></td>
+			</tr>	
+			<tr>
+				<td class="cellWidth">Vitamin C</td>
+				<td id="vitCNT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Vitamin B1</td>
+				<td id="vitB1NT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Vitamin B2</td>
+				<td id="vitB2NT"></td>
+			</tr>	
+			<tr>
+				<td class="cellWidth">Vitamin B3</td>
+				<td id="vitB3NT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Vitamin B5</td>
+				<td id="vitB5NT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Vitamin B6</td>
+				<td id="vitB6NT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Vitamin B9</td>
+				<td id="vitB9NT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Vitamin B12</td>
+				<td id="vitB12NT"></td>
+			</tr>
+			<tr>
+				<th class="tableHeaders">Minerals</th>
+			</tr>
+			<tr>
+				<td class="cellWidth">Calcium</td>
+				<td id="calciumNT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Copper</td>
+				<td id="copperNT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Iron</td>
+				<td id="ironNT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Magnesium</td>
+				<td id="magnesiumNT"></td>
+			</tr>	
+			<tr>
+				<td class="cellWidth">Manganese</td>
+				<td id="manganeseNT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Phosphorus</td>
+				<td id="phosphorusNT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Selenium</td>
+				<td id="seleniumNT"></td>
+			</tr>	
+			<tr>
+				<td class="cellWidth">Zinc</td>
+				<td id="zincNT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Potassium</td>
+				<td id="potassiumNT"></td>
+			</tr>
+			<tr>
+				<td class="cellWidth">Sodium</td>
+				<td id="sodiumNT"></td>
+			</tr>
+		</table>
+	</div>
+
+	</div>
+</main>
+
+<footer id="footerOne">
+	<h4>&copy; 2018 &nbsp;&nbsp;PLANTY</h4>
+	<p><small><span id="spanFooter">DESIGNED & DEVELOPED BY: <a id="portfolioLink" href="https://codepen.io/tanjamarathon/full/ePExRE/" target="_blanck">Tanja Veljanovska Saveska</a></span></small></p>	
+</footer>
 
 	<script src="planty_script.js"></script>
 </body>

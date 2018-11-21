@@ -3,14 +3,19 @@
 			margin: 0vw;
 			padding: 0vw;
         }
-        
-        #divLogo {
-			background-color: white;
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			align-items: center;
-		}
+
+        #mainOne {
+            min-height: 60vh;
+        }
+
+        #headerOne, #divLogo {
+            background-color: white;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
 
 		#imgLogo {
 			height: 5vw;
@@ -31,8 +36,55 @@
 			color: #4f4d4b;
 			margin-left: 2vw;
         }
+
+        #ulNav {
+            margin-right: 6vw;
+        }
+
+        .liNav {
+            display: inline;
+        }
+
+        .aNav {
+            color: #4f4d4b;
+            text-decoration: none;
+            font-family: 'Hind Siliguri', sans-serif;
+            font-size: 1.5vw;
+            font-weight: bold;
+            margin-left: 2vw;
+        }
+
+        .aNav:hover {
+            color: #e83b52;
+        }
+
+        #footerOne {
+            margin-top: 5vw;
+            margin-bottom: 2.5vw;
+            background-color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.3vw;
+            font-family: 'Abril Fatface', cursive;
+            color: #e83b52;
+        }
+
+        #spanFooter {
+            font-family: 'Hind Siliguri', sans-serif;
+            color: #4f4d4b;
+        }
+
+        #portfolioLink {
+            text-decoration: none;
+            font-family: 'Hind Siliguri', sans-serif;
+            color: #4f4d4b;
+        }
+
+        #portfolioLink:hover {
+            color: #e83b52;
+        }
         
-        #divLogIn, #divPersonalInfo, #divDailyRequirement, #divQuestion, #divFoodSelection {
+        #divLogIn, #divPersonalInfo, #divDailyRequirement, #divQuestion, #divFoodSelection, #divNutritionTracker {
             background-color: #3be8ba;
             color: #4f4d4b;
             text-align: center;
@@ -41,31 +93,59 @@
             border-radius: 6vw;
             width: 30vw;
             margin-top: 3vw;
-            margin-bottom: 5vw;
 			padding: 3vw 6vw 3vw 6vw;
             margin-left: auto;
             margin-right: auto;
         }
 
-        #divPersonalInfo, #divDailyRequirement, #divQuestion, #divFoodSelection {
+        #divPersonalInfo, #divDailyRequirement, #divQuestion, #container, #divFoodSelection, #divNutritionTracker {
             display: none;
         }
 
-        #formLogIn, #formPersonalInfo,#formDailyFood {
+        #container {
+            color: transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #divFoodSelection {
+            background-color: #ede8e5;
+            width: 80vw;
+        }
+
+        #divNutritionTracker {
+            background-color: #ede8e5;
+            margin-top: 2.5vw;
+        }
+
+        #formLogIn, #formPersonalInfo, #formDailyFood, #formMyPlate {
+            margin-left: auto;
+            margin-right: auto;
             font-weight: bold;
             font-size: 1.3vw;
         }
 
-        .inputs {
-            margin: 0.5vw 2vw 0vw 0.5vw;
+        .inputs, .inputsDF, .inputsMyPlate {
+            margin: 0.5vw;
             color: #4f4d4b;
             text-align: center;
 			font-family: 'Hind Siliguri', sans-serif;
             font-size: 1.1vw;
             padding: 0.2vw;
-            width: 18vw;
+            width: 17vw;
             border: none;
             border-radius: 2vw;
+        }
+
+        .inputsDF {
+            margin: 1.5vw;
+        }
+
+        .inputsMyPlate {
+            margin: 0vw 0.5vw 0vw 0vw;  
+            width: 4vw;
         }
 
         #selectPregnantLactating, #pregnantLactating {
@@ -91,29 +171,62 @@
             font-style: italic;
         }
 
-        #tableDailyRequirement {
-            width: 80%;
+        #tableDailyRequirement, #tableMyPlate, #tableNutritionTracker, #tablePersonalInfo {
+            width: 90%;
             margin-right: auto;
             margin-left: auto;
             text-align: left;
         }
 
+        /*#tableMyPlate {
+            display: none;
+        }*/
+
+        .tableHeaders, .tableHeadersNT {
+            font-size: 1.5vw;
+            text-align: left;
+            padding: 1vw 0vw 1vw 0vw;
+        }
+
         .tableHeaders {
             text-align: center;
-            font-size: 1.5vw;
             column-span: 2;
-            padding: 1vw;
         }
 
-        #divFoodSelection {
-            background-color: #ede8e5;
+        #tableHeaderArticals {
+            width: 75%;
+        }
+
+        #tableHeaderQuantity {
+            width: 25%;
+        }
+
+        .aDelete {
             color: #4f4d4b;
-            width: 80vw;
+            text-decoration: none;
+            font-family: 'Hind Siliguri', sans-serif;
         }
 
-        #pinkHeadline {
+        .aDelete:hover {
             color: #e83b52;
         }
+
+        .cellPI {
+            text-align: right;
+            width: 15%;
+            padding: 1.5vw 0vw 1.5vw 0vw;
+        }
+
+        .cellWidth {
+            width: 50%;
+            padding: 0.5vw 0vw 0.5vw 0vw;
+        }
+        
+        .pinkHeadline {
+            color: #e83b52;
+        }
+
+        
 
     
 
