@@ -265,14 +265,14 @@
 				<option value="Quinoa, raw">Quinoa, raw</option>
 			</select>
 			Vegetables:
-			<select class="inputsDF" id="selectVegetables">
+			<select class="inputsDF" id="selectVegetables" onchange="addFood(this)">
 				<option value=""></option>
 				<option value="Broccoli, raw">Broccoli, raw</option>
 				<option value="Carrot, raw">Carrot, raw</option>
 				<option value="Potato, raw">Potato, raw</option>
 			</select>
 			Fruits:
-			<select class="inputsDF" id="selectFruits">
+			<select class="inputsDF" id="selectFruits" onchange="addFood(this)">
 				<option value=""></option>
 				<option value="Apple">Apple</option>
 				<option value="Banana">Banana</option>
@@ -291,6 +291,10 @@
 				</tr>
 			</table>
 		</form>
+		<button class="btns" id="btnTracking" type="button" onclick="tracking()">Track My Food</button>
+		<br>
+		<br>
+		<p id="test"></p>
 	</div>
 
 	<div id="divNutritionTracker">

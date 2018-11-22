@@ -1,6 +1,10 @@
         //Storing row index of tableMyPlate
         var rowIndex = 0;
 
+        //Array of sum of allNutrients
+        var totalNutrients = [];
+        var checkArrayTotal = 0;
+
         //Daily required macro and micronutrients, depending on sex and age
         var reqCalories = 0;
         var reqTotalCarbohydrate = 0;
@@ -34,9 +38,9 @@
         //Food's nutritional value 
         //Calories, TotalCarbohydrate, LinoleicAcid, AlphaLinoleicAcid, Protein, DietaryFiber, VitA, VitD, VitE, VitK, VitC, VitB1, VitB2, VitB3
         //VitB5, VitB6, VitB9, VitB12, Ca, Cu, Fe, Mg, Mn, P, Se, Zn, K, Na
-        var oatsArray = [389, 66.27, 2.424, 0.111, 16.89, 10.6, 0, 0, 0, 0, 0, 0.763, 0.139, 0.961, 1.349, 0.119, 56, 0, 54, 626, 4.72, 177, 4.916, 523, 0, 3.97, 0.429, 0.002];
-        var riceArray = [362, 76.17, 0.918, 0.041, 7.50, 3.4, 0, 0, 0, 0, 0, 0.413, 0.043, 4.308, 1.493, 0.509, 20, 0, 33, 277, 1.80, 143, 3.743, 264, 0, 2.02, 0.268, 0.004];
-        var quinoaArray = [368, 64.16, 2.977, 0.260, 14.12, 7, 14, 0, 2.44, 0, 0, 0.360, 0.318, 1.520, 0.772, 0.487, 184, 0, 47, 590, 4.57, 197, 2.033, 457, 0, 3.10, 0.563, 0.5];
+        var grainsArray = [ ["Oats, raw", [389, 66.27, 2.424, 0.111, 16.89, 10.6, 0, 0, 0, 0, 0, 0.763, 0.139, 0.961, 1.349, 0.119, 56, 0, 54, 626, 4.72, 177, 4.916, 523, 0, 3.97, 0.429, 0.002]],
+         ["Rice, raw", [362, 76.17, 0.918, 0.041, 7.50, 3.4, 0, 0, 0, 0, 0, 0.413, 0.043, 4.308, 1.493, 0.509, 20, 0, 33, 277, 1.80, 143, 3.743, 264, 0, 2.02, 0.268, 0.004]],
+         ["Quinoa, raw", [368, 64.16, 2.977, 0.260, 14.12, 7, 14, 0, 2.44, 0, 0, 0.360, 0.318, 1.520, 0.772, 0.487, 184, 0, 47, 590, 4.57, 197, 2.033, 457, 0, 3.10, 0.563, 0.5]] ];
         var broccoliArray = [];
         var carrotArray = [];
         var potatoArray = [];
@@ -396,6 +400,7 @@
 
         function addFood(foodCategory) {
             var foodCategoryID = foodCategory.id;
+            var foodCategoryValue = document.getElementById(foodCategoryID).value;
             document.getElementById("tableMyPlate").style.display = "block";
 
             rowIndex++;
@@ -407,7 +412,20 @@
             var cellFood3 = rowFood.insertCell(2);
             var cellFood4 = rowFood.insertCell(3);
 
-            cellFood1.innerHTML = document.getElementById(foodCategoryID).value;
+            var gramsValue = 1;
+            if (foodCategoryID.value !== "") {
+                cellFood1.innerHTML = foodCategoryValue;
+
+                if (foodCategoryID === "selectGrains") {
+                    addGrain(foodCategoryValue, gramsValue);
+                }     
+                else if (foodCategoryID === "selectVegetables") {
+                    addVegetable(foodCategoryValue, gramsValue);
+                }  
+                else if (foodCategoryID === "selectFruits") {
+                    addFruit(foodCategoryValue, gramsValue);
+                }     
+            }
 
             var inputCell2 = document.createElement("INPUT");
             inputCell2.className = "inputsMyPlate";
@@ -423,4 +441,28 @@
             var textLink = document.createTextNode("Delete");
             linkCell4.appendChild(textLink);     
             cellFood4.appendChild(linkCell4);
+
+            var testParagraf = document.getElementById("test");
+            var temp = "";
+            for(var i= 0; i < totalNutrients.length; i++) {
+                temp += totalNutrients[i] + " ";
+            }
+            testParagraf.innerHTML = temp;
+        }
+
+        //Calculating the sum of nutrients of all grains used in user's meals
+        function addGrain(food, quantity) {
+            for (var arrayIndex = 0; arrayIndex < grainsArray.length; arrayIndex++) {
+                if (grainsArray[arrayIndex][0] === food) {
+                    for (var subArrayIndex = 0; subArrayIndex < grainsArray[arrayIndex][1].length; subArrayIndex++) {
+                        if (checkArrayTotal === 0) {
+                            totalNutrients.push(grainsArray[arrayIndex][1][subArrayIndex]);
+                        }
+                        else {
+                            totalNutrients[subArrayIndex] += grainsArray[arrayIndex][1][subArrayIndex];
+                        }
+                    }
+                }
+            }
+            checkArrayTotal++;
         }
