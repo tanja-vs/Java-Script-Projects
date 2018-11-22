@@ -1,3 +1,6 @@
+        //Storing row index of tableMyPlate
+        var rowIndex = 0;
+
         //Daily required macro and micronutrients, depending on sex and age
         var reqCalories = 0;
         var reqTotalCarbohydrate = 0;
@@ -387,4 +390,16 @@
             document.getElementById("divQuestion").style.display = "none";
             document.getElementById("divFoodSelection").style.display = "block";
             document.getElementById("divNutritionTracker").style.display = "block"; 
+        }
+
+        function addFoodGrain() {
+            rowIndex++;
+            var tableFood = document.getElementById("tableMyPlate");
+            var rowFood = tableFood.insertRow(rowIndex);
+            var cellFood1 = rowFood.insertCell(0);
+            var cellFood2 = rowFood.insertCell(1);
+            var cellFood3 = rowFood.insertCell(2);
+            cellFood1.innerHTML = document.getElementById("selectGrains").value;
+            cellFood2.innerHTML = 2;
+            cellFood3.innerHTML = 3;
         }
