@@ -113,7 +113,7 @@
 	</div>
 
 	<div id="divDailyRequirement">
-		<h2>YOUR DAILY NUTRITION REQUIREMENTS:</h2>
+		<h2>YOUR DAILY NUTRITION REQUIREMENTS</h2>
 		<table id="tableDailyRequirement">
 			<tr>
 				<td>Calories (kcal)</td>
@@ -258,7 +258,7 @@
 		<br>
 		<form id="formDailyFood">
 			Grains:
-			<select class="inputsDF" id="selectGrains" onchange="addFoodGrain()">
+			<select class="inputsDF" id="selectGrains" onchange="addFood(this)">
 				<option value=""></option>
 				<option value="Oats, raw">Oats, raw</option>
 				<option value="Rice, raw">Rice, raw</option>
@@ -286,12 +286,8 @@
 				<tr>
 					<th class="tableHeadersNT pinkHeadline" id="tableHeaderArticals">Artical</th>
 					<th class="tableHeadersNT pinkHeadline" id="tableHeaderQuantity">Quantity</th>
-					<th class="tableHeadersNT"></th>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input class="inputsMyPlate" type="number" name="" value="100"> g</td>
-					<td><a class="aDelete" href="">Delete</a></td>
+					<th class="tableHeadersNT" id="tableHeaderGrams"></th>
+					<th class="tableHeadersNT" id="tableHeaderDelete"></th>
 				</tr>
 			</table>
 		</form>

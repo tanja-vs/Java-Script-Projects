@@ -178,9 +178,12 @@
             text-align: left;
         }
 
-        /*#tableMyPlate {
+        #tableMyPlate {
+            width: 40%;
+            table-layout: fixed;
             display: none;
-        }*/
+            margin-bottom: 2.5vw;
+        }
 
         .tableHeaders, .tableHeadersNT {
             font-size: 1.5vw;
@@ -194,16 +197,21 @@
         }
 
         #tableHeaderArticals {
-            width: 75%;
+            width: 55%;
         }
 
         #tableHeaderQuantity {
-            width: 25%;
+            width: 10%;
+        }
+
+        #tableHeaderDelete {
+            width: 20%;
         }
 
         .aDelete {
             color: #4f4d4b;
             text-decoration: none;
+            text-align: right;
             font-family: 'Hind Siliguri', sans-serif;
         }
 

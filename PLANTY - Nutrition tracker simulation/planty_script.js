@@ -381,6 +381,7 @@
             
 		}
 
+        //Going to divQuestion from 
         function next() {
             document.getElementById("divDailyRequirement").style.display = "none";
             document.getElementById("divQuestion").style.display = "block";  
@@ -392,14 +393,34 @@
             document.getElementById("divNutritionTracker").style.display = "block"; 
         }
 
-        function addFoodGrain() {
+
+        function addFood(foodCategory) {
+            var foodCategoryID = foodCategory.id;
+            document.getElementById("tableMyPlate").style.display = "block";
+
             rowIndex++;
+            
             var tableFood = document.getElementById("tableMyPlate");
             var rowFood = tableFood.insertRow(rowIndex);
             var cellFood1 = rowFood.insertCell(0);
             var cellFood2 = rowFood.insertCell(1);
             var cellFood3 = rowFood.insertCell(2);
-            cellFood1.innerHTML = document.getElementById("selectGrains").value;
-            cellFood2.innerHTML = 2;
-            cellFood3.innerHTML = 3;
+            var cellFood4 = rowFood.insertCell(3);
+
+            cellFood1.innerHTML = document.getElementById(foodCategoryID).value;
+
+            var inputCell2 = document.createElement("INPUT");
+            inputCell2.className = "inputsMyPlate";
+            inputCell2.type = "number";
+            inputCell2.name = "quantity";
+            inputCell2.value = 100;
+            cellFood2.appendChild(inputCell2);
+
+            cellFood3.innerHTML = "g ";
+            
+            var linkCell4 = document.createElement("A"); 
+            linkCell4.className = "aDelete";            
+            var textLink = document.createTextNode("Delete");
+            linkCell4.appendChild(textLink);     
+            cellFood4.appendChild(linkCell4);
         }
