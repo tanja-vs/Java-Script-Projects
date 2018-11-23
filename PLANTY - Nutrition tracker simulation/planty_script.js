@@ -504,6 +504,7 @@
                 else {
                     totalNut = totalNutrients[arrayIndex];
                     requiredNut = tableRequirements.rows.item(rowRIndex).cells[1].innerHTML;
+                    //Multiplaying by 100 because nutrient value is per 100g
                     percents = totalNut / requiredNut * 100;
                     tableResults.rows.item(rowRIndex).cells[1].children[0].innerHTML = percents.toFixed(0) + "%";
                    
@@ -520,10 +521,19 @@
             }
         }
 
+        //Turning back to add more foods on daily food list
         function addMoreFood() {
             scrollTo(0,0);
             document.getElementById("divFoodSelection").style.display = "block";
             document.getElementById("divNutritionTracker").style.display = "none";
+            
+            //deleting stored values from totalNutrients array
+            for (var i = 0; i < 29; i++) {
+                totalNutrients.pop();
+            }
+
+            checkArrayTotal = 0;
+            alert(totalNutrients.length);
         }
     
 
