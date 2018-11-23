@@ -391,78 +391,119 @@
             document.getElementById("divQuestion").style.display = "block";  
         }
 
+        //Going to divFoodSelection
         function checkMyDay() {
             document.getElementById("divQuestion").style.display = "none";
             document.getElementById("divFoodSelection").style.display = "block";
-            document.getElementById("divNutritionTracker").style.display = "block"; 
         }
 
-
+        //Adding food artical in tableMyPlate if food is chosen in drop down menu
         function addFood(foodCategory) {
             var foodCategoryID = foodCategory.id;
             var foodCategoryValue = document.getElementById(foodCategoryID).value;
-            document.getElementById("tableMyPlate").style.display = "block";
 
-            rowIndex++;
+            if (foodCategoryValue !== "") {
+                document.getElementById("tableMyPlate").style.display = "block";
+    
+                rowIndex++;
+                
+                var tableFood = document.getElementById("tableMyPlate");
+                var rowFood = tableFood.insertRow(rowIndex);
+                var cellFood1 = rowFood.insertCell(0);
+                var cellFood2 = rowFood.insertCell(1);
+                var cellFood3 = rowFood.insertCell(2);
+                var cellFood4 = rowFood.insertCell(3);
             
-            var tableFood = document.getElementById("tableMyPlate");
-            var rowFood = tableFood.insertRow(rowIndex);
-            var cellFood1 = rowFood.insertCell(0);
-            var cellFood2 = rowFood.insertCell(1);
-            var cellFood3 = rowFood.insertCell(2);
-            var cellFood4 = rowFood.insertCell(3);
+                cellFood1.innerHTML = foodCategoryValue;   
+        
+                var inputCell2 = document.createElement("INPUT");
+                inputCell2.className = "inputsMyPlate";
+                inputCell2.type = "number";
+                inputCell2.name = "quantity";
+                inputCell2.value = 100;
+                cellFood2.appendChild(inputCell2);
 
-            var gramsValue = 1;
-            if (foodCategoryID.value !== "") {
-                cellFood1.innerHTML = foodCategoryValue;
-
-                if (foodCategoryID === "selectGrains") {
-                    addGrain(foodCategoryValue, gramsValue);
-                }     
-                else if (foodCategoryID === "selectVegetables") {
-                    addVegetable(foodCategoryValue, gramsValue);
-                }  
-                else if (foodCategoryID === "selectFruits") {
-                    addFruit(foodCategoryValue, gramsValue);
-                }     
-            }
-
-            var inputCell2 = document.createElement("INPUT");
-            inputCell2.className = "inputsMyPlate";
-            inputCell2.type = "number";
-            inputCell2.name = "quantity";
-            inputCell2.value = 100;
-            cellFood2.appendChild(inputCell2);
-
-            cellFood3.innerHTML = "g ";
+                cellFood3.innerHTML = "g ";
             
-            var linkCell4 = document.createElement("A"); 
-            linkCell4.className = "aDelete";            
-            var textLink = document.createTextNode("Delete");
-            linkCell4.appendChild(textLink);     
-            cellFood4.appendChild(linkCell4);
-
-            var testParagraf = document.getElementById("test");
-            var temp = "";
-            for(var i= 0; i < totalNutrients.length; i++) {
-                temp += totalNutrients[i] + " ";
+                var linkCell4 = document.createElement("A"); 
+                linkCell4.className = "aDelete";            
+                var textLink = document.createTextNode("Delete");
+                linkCell4.appendChild(textLink);     
+                cellFood4.appendChild(linkCell4);
             }
-            testParagraf.innerHTML = temp;
         }
 
-        //Calculating the sum of nutrients of all grains used in user's meals
-        function addGrain(food, quantity) {
-            for (var arrayIndex = 0; arrayIndex < grainsArray.length; arrayIndex++) {
-                if (grainsArray[arrayIndex][0] === food) {
-                    for (var subArrayIndex = 0; subArrayIndex < grainsArray[arrayIndex][1].length; subArrayIndex++) {
-                        if (checkArrayTotal === 0) {
-                            totalNutrients.push(grainsArray[arrayIndex][1][subArrayIndex]);
-                        }
-                        else {
-                            totalNutrients[subArrayIndex] += grainsArray[arrayIndex][1][subArrayIndex];
+        //Calculating the sum of nutrients of all food and calculating percents of fullfiled daily requirements
+        function tracking() {           
+            var tableList = document.getElementById("tableMyPlate");
+            var rowsLength = tableList.rows.length;
+
+            if (rowsLength === 1) {
+                document.getElementById("messageFillIn3").innerHTML = "Please choose your food.";
+            }
+            
+            else {
+                document.getElementById("divFoodSelection").style.display = "none";
+                document.getElementById("divNutritionTracker").style.display = "block";
+                var foodValue = "";
+                var nutrientValue = 0;
+                var foodQuantityCell = "";
+                var foodQuantity = 0;
+                var totalValue = 0;
+            
+                //Checking the food category
+                for (var indexRows = 1; indexRows < rowsLength; indexRows++) {
+                    foodValue = tableList.rows.item(indexRows).cells[0].innerHTML;
+ 
+                    for (var arrayIndex = 0; arrayIndex < grainsArray.length; arrayIndex++) {
+                        if (grainsArray[arrayIndex][0] === foodValue) {
+                            for (var subArrayIndex = 0; subArrayIndex < grainsArray[arrayIndex][1].length; subArrayIndex++) {
+                                nutrientValue = grainsArray[arrayIndex][1][subArrayIndex];
+                                foodQuantityCell = tableList.rows.item(indexRows).cells[1];
+                                foodQuantity = foodQuantityCell.children[0].value;
+                                totalValue = nutrientValue * foodQuantity / 100;
+                            
+                                if (checkArrayTotal === 0) {
+                                    totalNutrients.push(totalValue);
+                                }
+                                else {
+                                    totalNutrients[subArrayIndex] += totalValue;
+                                }
+                            }
                         }
                     }
+
+
+
+
+                    checkArrayTotal++;
+                }
+            
+                fillResults();
+            }
+        }
+
+        function fillResults() {
+            var tableResults = document.getElementById("tableNutritionTracker");
+            var tableRequirements = document.getElementById("tableDailyRequirement");
+            var totalNut = 0;
+            var requiredNut = 0;
+            var percents = 0;
+            var rowsResultsLength = tableResults.rows.length;
+            var arrayIndex = 0;
+
+            for (var rowRIndex = 0; rowRIndex < rowsResultsLength; rowRIndex++) {
+                //the if (rowRIndex !== 6 || rowRIndex !== 19) couldn't solve filling the entire table. It stops at 7th row with collspan
+                if (rowRIndex === 6 || rowRIndex === 19) {
+                }
+                else {
+                    totalNut = totalNutrients[arrayIndex];
+                    requiredNut = tableRequirements.rows.item(rowRIndex).cells[1].innerHTML;
+                    percents = totalNut / requiredNut * 100;
+                    tableResults.rows.item(rowRIndex).cells[1].innerHTML = percents.toFixed(0) + "%";
+                    arrayIndex++;
                 }
             }
-            checkArrayTotal++;
         }
+    
+
