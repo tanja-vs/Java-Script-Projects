@@ -58,6 +58,7 @@
             }
             
 			else {
+                scrollTo(0,0);
                 document.getElementById("divLogIn").style.display = "none";
                 document.getElementById("divPersonalInfo").style.display = "block";
 				document.getElementById("personalGreeting").innerHTML = "HI, " + checkName.toUpperCase() + "!";
@@ -142,7 +143,8 @@
 				document.getElementById("messageFillIn2").innerHTML = "Please fill in the required fields.";
             }
 
-            else {            
+            else {   
+                scrollTo(0,0);         
                 document.getElementById("divPersonalInfo").style.display = "none";
                 document.getElementById("divDailyRequirement").style.display = "block";
 
@@ -387,12 +389,14 @@
 
         //Going to divQuestion from 
         function next() {
+            scrollTo(0,0);
             document.getElementById("divDailyRequirement").style.display = "none";
             document.getElementById("divQuestion").style.display = "block";  
         }
 
         //Going to divFoodSelection
         function checkMyDay() {
+            scrollTo(0,0);
             document.getElementById("divQuestion").style.display = "none";
             document.getElementById("divFoodSelection").style.display = "block";
         }
@@ -437,19 +441,20 @@
         function tracking() {           
             var tableList = document.getElementById("tableMyPlate");
             var rowsLength = tableList.rows.length;
+            var foodValue = "";
+            var nutrientValue = 0;
+            var foodQuantityCell = "";
+            var foodQuantity = 0;
+            var totalValue = 0;
 
             if (rowsLength === 1) {
                 document.getElementById("messageFillIn3").innerHTML = "Please choose your food.";
             }
             
             else {
+                scrollTo(0,0);
                 document.getElementById("divFoodSelection").style.display = "none";
                 document.getElementById("divNutritionTracker").style.display = "block";
-                var foodValue = "";
-                var nutrientValue = 0;
-                var foodQuantityCell = "";
-                var foodQuantity = 0;
-                var totalValue = 0;
             
                 //Checking the food category
                 for (var indexRows = 1; indexRows < rowsLength; indexRows++) {
@@ -500,10 +505,25 @@
                     totalNut = totalNutrients[arrayIndex];
                     requiredNut = tableRequirements.rows.item(rowRIndex).cells[1].innerHTML;
                     percents = totalNut / requiredNut * 100;
-                    tableResults.rows.item(rowRIndex).cells[1].innerHTML = percents.toFixed(0) + "%";
+                    tableResults.rows.item(rowRIndex).cells[1].children[0].innerHTML = percents.toFixed(0) + "%";
+                   
+                    if (percents >= 100) {
+                        tableResults.rows.item(rowRIndex).cells[1].children[0].style.width = "100%";
+                        tableResults.rows.item(rowRIndex).cells[1].children[0].style.backgroundColor = "#3be8ba";
+                    }
+                    else {
+                        tableResults.rows.item(rowRIndex).cells[1].children[0].style.width = percents.toFixed(0) + "%";
+                    }
+                    
                     arrayIndex++;
                 }
             }
+        }
+
+        function addMoreFood() {
+            scrollTo(0,0);
+            document.getElementById("divFoodSelection").style.display = "block";
+            document.getElementById("divNutritionTracker").style.display = "none";
         }
     
 
