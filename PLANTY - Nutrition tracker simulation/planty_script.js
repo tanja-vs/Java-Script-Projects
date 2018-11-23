@@ -40,13 +40,14 @@
         //VitB5, VitB6, VitB9, VitB12, Ca, Cu, Fe, Mg, Mn, P, Se, Zn, K, Na
         var grainsArray = [ ["Oats, raw", [389, 66.27, 2.424, 0.111, 16.89, 10.6, 0, 0, 0, 0, 0, 0.763, 0.139, 0.961, 1.349, 0.119, 56, 0, 54, 626, 4.72, 177, 4.916, 523, 0, 3.97, 0.429, 0.002]],
          ["Rice, raw", [362, 76.17, 0.918, 0.041, 7.50, 3.4, 0, 0, 0, 0, 0, 0.413, 0.043, 4.308, 1.493, 0.509, 20, 0, 33, 277, 1.80, 143, 3.743, 264, 0, 2.02, 0.268, 0.004]],
-         ["Quinoa, raw", [368, 64.16, 2.977, 0.260, 14.12, 7, 14, 0, 2.44, 0, 0, 0.360, 0.318, 1.520, 0.772, 0.487, 184, 0, 47, 590, 4.57, 197, 2.033, 457, 0, 3.10, 0.563, 0.5]] ];
-        var broccoliArray = [];
-        var carrotArray = [];
-        var potatoArray = [];
-        var appleArray = [];
-        var orangeArray = [];
-
+         ["Quinoa, raw", [368, 64.16, 2.977, 0.260, 14.12, 7, 8.4, 0, 2.44, 0, 0, 0.360, 0.318, 1.520, 0.772, 0.487, 184, 0, 47, 590, 4.57, 197, 2.033, 457, 0, 3.10, 0.563, 0.005]] ];
+        var vegetablesArray = [ ["Broccoli, raw", [34, 6.64, 0.049, 0.063, 2.82, 2.6, 373.8, 0, 0.78, 101.6, 89.2, 0.071, 0.117, 0.639, 0.573, 0.175, 63, 0, 47, 49, 0.73, 21, 0.210, 66, 2.5, 0.41, 0.316, 0.033]],
+         ["Carrots, raw", [41, 9.58, 0.100, 0.002, 0.93, 2.8, 10023.6, 0, 0.66, 13.2, 5.9, 0.066, 0.058, 0.983, 0.273, 0.138, 19, 0, 33, 45, 0.30, 12, 0.143, 35, 0.1, 0.24, 0.320, 0.069]],
+         ["Potatos, raw, skin", [58, 12.44, 0.032, 0.010, 2.57, 2.5, 0, 0, 0, 0, 11.4, 0.021, 0.038, 1.033, 0.302, 0.239, 17, 0, 30, 423, 3.24, 23, 0.602, 38, 0.3, 0.35, 0.413, 0.010]] ];
+        var fruitsArray = [ ["Apples, raw, with skin", [52, 13.81, 0.043, 0.009, 0.26, 2.4, 32.4, 0, 0.18, 2.2, 4.6, 0.017, 0.026, 0.091, 0.061, 0.041, 3, 0, 6, 27, 0.12, 5, 0.035, 11, 0, 0.04, 0.107, 0.001]],
+         ["Bananas, raw", [89, 22.84, 0.046, 0.027, 1.09, 2.6, 38.4, 0, 0.10, 0.5, 8.7, 0.031, 0.073, 0.665, 0.334, 0.367, 20, 0, 5, 78, 0.26, 27, 0.270, 22, 1.0, 0.15, 0.358, 0.001]],
+         ["Oranges, raw, with peel", [63, 15.50, 0.044, 0.016, 1.30, 4.5, 150, 0, 0, 0, 71, 0.100, 0.050, 0.500, 0.330, 0.093, 30, 0, 70, 57, 0.80, 14, 0, 22, 0.7, 0.11, 0.196, 0.002]] ];
+                
         //On Button "LOG IN" click
         function logIn() {
 			var checkName = document.getElementById("inputName").value;
@@ -462,10 +463,49 @@
                 for (var indexRows = 1; indexRows < rowsLength; indexRows++) {
                     foodValue = tableList.rows.item(indexRows).cells[0].innerHTML;
  
+                    //Checking if it is a grain
                     for (var arrayIndex = 0; arrayIndex < grainsArray.length; arrayIndex++) {
                         if (grainsArray[arrayIndex][0] === foodValue) {
                             for (var subArrayIndex = 0; subArrayIndex < grainsArray[arrayIndex][1].length; subArrayIndex++) {
                                 nutrientValue = grainsArray[arrayIndex][1][subArrayIndex];
+                                foodQuantityCell = tableList.rows.item(indexRows).cells[1];
+                                foodQuantity = foodQuantityCell.children[0].value;
+                                totalValue = nutrientValue * foodQuantity / 100;
+                            
+                                if (checkArrayTotal === 0) {
+                                    totalNutrients.push(totalValue);
+                                }
+                                else {
+                                    totalNutrients[subArrayIndex] += totalValue;
+                                }
+                            }
+                        }
+                    }
+
+                    //Checking if it is a vegetable
+                    for (var arrayIndex = 0; arrayIndex < vegetablesArray.length; arrayIndex++) {
+                        if (vegetablesArray[arrayIndex][0] === foodValue) {
+                            for (var subArrayIndex = 0; subArrayIndex < vegetablesArray[arrayIndex][1].length; subArrayIndex++) {
+                                nutrientValue = vegetablesArray[arrayIndex][1][subArrayIndex];
+                                foodQuantityCell = tableList.rows.item(indexRows).cells[1];
+                                foodQuantity = foodQuantityCell.children[0].value;
+                                totalValue = nutrientValue * foodQuantity / 100;
+                            
+                                if (checkArrayTotal === 0) {
+                                    totalNutrients.push(totalValue);
+                                }
+                                else {
+                                    totalNutrients[subArrayIndex] += totalValue;
+                                }
+                            }
+                        }
+                    }
+
+                    //Cheking if it is a fruit
+                    for (var arrayIndex = 0; arrayIndex < fruitsArray.length; arrayIndex++) {
+                        if (fruitsArray[arrayIndex][0] === foodValue) {
+                            for (var subArrayIndex = 0; subArrayIndex < fruitsArray[arrayIndex][1].length; subArrayIndex++) {
+                                nutrientValue = fruitsArray[arrayIndex][1][subArrayIndex];
                                 foodQuantityCell = tableList.rows.item(indexRows).cells[1];
                                 foodQuantity = foodQuantityCell.children[0].value;
                                 totalValue = nutrientValue * foodQuantity / 100;
