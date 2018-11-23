@@ -557,6 +557,7 @@
                     }
                     else {
                         tableResults.rows.item(rowRIndex).cells[1].children[0].style.width = percents.toFixed(0) + "%";
+                        tableResults.rows.item(rowRIndex).cells[1].children[0].style.backgroundColor = "#e83b52";
                     }
                     
                     arrayIndex++;

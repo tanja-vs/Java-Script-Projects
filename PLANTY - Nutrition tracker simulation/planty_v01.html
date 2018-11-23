@@ -5,10 +5,14 @@
 <head>
 	<title>Planty</title>
 
-	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Hind+Siliguri|Pattaya" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="description" content="Nutrition tracker">
+	<meta name="keywords" content="nutri tracker, nutrition tracker, nutrition, nutrients, app, daily requirements">
+	<meta name="author" content="Tanja Veljanovska Saveska">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" type="text/css" href="planty_style.css">
-	
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Hind+Siliguri|Pattaya" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="planty_style.css">	
 </head>
 
 <body>
@@ -268,15 +272,15 @@
 			<select class="inputsDF" id="selectVegetables" onchange="addFood(this)">
 				<option value=""></option>
 				<option value="Broccoli, raw">Broccoli, raw</option>
-				<option value="Carrots, raw">Carrot, raw</option>
-				<option value="Potatos, raw, skin">Potato, raw</option>
+				<option value="Carrots, raw">Carrots, raw</option>
+				<option value="Potatos, raw, skin">Potatos, raw, skin</option>
 			</select>
 			Fruits:
 			<select class="inputsDF" id="selectFruits" onchange="addFood(this)">
 				<option value=""></option>
-				<option value="Apples, raw, with skin">Apple</option>
-				<option value="Bananas, raw">Banana</option>
-				<option value="Oranges, raw, with peel">Orange</option>
+				<option value="Apples, raw, with skin">Apples, raw, with skin</option>
+				<option value="Bananas, raw">Bananas, raw</option>
+				<option value="Oranges, raw, with peel">Oranges, raw, with peel</option>
 			</select>
 		</form>
 		<br>
@@ -291,7 +295,7 @@
 				</tr>
 			</table>
 			<br>
-			<p class="pinkHeadline">Show me my daily nutritional fulfillments profile</p>
+			<p class="pinkHeadline">Show me my daily nutritional profile</p>
 			<button class="btns" id="btnTracking" type="button" onclick="tracking()">Show me</button>
 			<p id="messageFillIn3"></p>
 			<br>
@@ -299,7 +303,7 @@
 	</div>
 
 	<div id="divNutritionTracker">
-		<h2 class="pinkHeadline">DAILY NUTRITIONAL FULFILLMENTS PROFILE</h2>
+		<h2 class="pinkHeadline">DAILY NUTRITIONAL PROFILE</h2>
 		<table id="tableNutritionTracker">
 			<tr>
 				<td class="cellWidth">Calories</td>
