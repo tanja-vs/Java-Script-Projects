@@ -215,14 +215,16 @@
             width: 20%;
         }
 
-        .aDelete {
+        .btnDelete {
+            background-color: transparent;
+            border: none;
             color: #4f4d4b;
-            text-decoration: none;
+            font-weight: bold;
             text-align: right;
             font-family: 'Hind Siliguri', sans-serif;
         }
 
-        .aDelete:hover {
+        .btnDelete:hover {
             color: #e83b52;
         }
 

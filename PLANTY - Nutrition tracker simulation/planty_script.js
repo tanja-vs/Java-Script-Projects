@@ -1,5 +1,5 @@
         //Storing row index of tableMyPlate
-        var rowIndex = 0;
+        var rowIndexMyPlate = 0;
 
         //Array of sum of allNutrients
         var totalNutrients = [];
@@ -409,10 +409,10 @@
             if (foodCategoryValue !== "") {
                 document.getElementById("tableMyPlate").style.display = "block";
     
-                rowIndex++;
+                rowIndexMyPlate++;
                 
                 var tableFood = document.getElementById("tableMyPlate");
-                var rowFood = tableFood.insertRow(rowIndex);
+                var rowFood = tableFood.insertRow(rowIndexMyPlate);
                 var cellFood1 = rowFood.insertCell(0);
                 var cellFood2 = rowFood.insertCell(1);
                 var cellFood3 = rowFood.insertCell(2);
@@ -429,15 +429,17 @@
 
                 cellFood3.innerHTML = "g ";
             
-                var linkCell4 = document.createElement("A"); 
-                linkCell4.className = "aDelete";            
-                var textLink = document.createTextNode("Delete");
-                linkCell4.appendChild(textLink);     
-                cellFood4.appendChild(linkCell4);
+                var btnCell4 = document.createElement("BUTTON"); 
+                btnCell4.className = "btnDelete"; 
+                btnCell4.type = "button";
+                btnCell4.addEventListener("click", deleteRow);           
+                var textBtn = document.createTextNode("Delete");
+                btnCell4.appendChild(textBtn);     
+                cellFood4.appendChild(btnCell4);
             }
         }
 
-        //Calculating the sum of nutrients of all food and calculating percents of fullfiled daily requirements
+        //Calculating the sum of nutrients of all food and calling other function for calculating percents of fullfiled daily requirements
         function tracking() {           
             var tableList = document.getElementById("tableMyPlate");
             var rowsLength = tableList.rows.length;
@@ -488,6 +490,7 @@
             }
         }
 
+        //calculating percenting of daily nutrients fullfilment and filling the tables cells
         function fillResults() {
             var tableResults = document.getElementById("tableNutritionTracker");
             var tableRequirements = document.getElementById("tableDailyRequirement");
@@ -521,7 +524,7 @@
             }
         }
 
-        //Turning back to add more foods on daily food list
+        //Going back to add more foods on daily food list
         function addMoreFood() {
             scrollTo(0,0);
             document.getElementById("divFoodSelection").style.display = "block";
@@ -533,7 +536,12 @@
             }
 
             checkArrayTotal = 0;
-            alert(totalNutrients.length);
         }
-    
+        
+        //Delete the row with the artical that the user doesn't need
+        function deleteRow() {
+            this.closest("tr").remove();
+
+            rowIndexMyPlate--;
+        }
 
