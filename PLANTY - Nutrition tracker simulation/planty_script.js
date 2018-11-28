@@ -1,9 +1,9 @@
         //Storing row index of tableMyPlate
-        var rowIndexMyPlate = 0;
+        let rowIndexMyPlate = 0;
 
         //Array of sum of allNutrients
-        var totalNutrients = [];
-        var checkArrayTotal = 0;
+        let totalNutrients = [];
+        let checkArrayTotal = 0;
 
         //Daily required macro and micronutrients, depending on sex and age
         var reqCalories = 0;
@@ -38,21 +38,21 @@
         //Food's nutritional value 
         //Calories, TotalCarbohydrate, LinoleicAcid, AlphaLinoleicAcid, Protein, DietaryFiber, VitA, VitD, VitE, VitK, VitC, VitB1, VitB2, VitB3
         //VitB5, VitB6, VitB9, VitB12, Ca, Cu, Fe, Mg, Mn, P, Se, Zn, K, Na
-        var grainsArray = [ ["Oats, raw", [389, 66.27, 2.424, 0.111, 16.89, 10.6, 0, 0, 0, 0, 0, 0.763, 0.139, 0.961, 1.349, 0.119, 56, 0, 54, 626, 4.72, 177, 4.916, 523, 0, 3.97, 0.429, 0.002]],
+        const grainsArray = [ ["Oats, raw", [389, 66.27, 2.424, 0.111, 16.89, 10.6, 0, 0, 0, 0, 0, 0.763, 0.139, 0.961, 1.349, 0.119, 56, 0, 54, 626, 4.72, 177, 4.916, 523, 0, 3.97, 0.429, 0.002]],
          ["Rice, raw", [362, 76.17, 0.918, 0.041, 7.50, 3.4, 0, 0, 0, 0, 0, 0.413, 0.043, 4.308, 1.493, 0.509, 20, 0, 33, 277, 1.80, 143, 3.743, 264, 0, 2.02, 0.268, 0.004]],
          ["Quinoa, raw", [368, 64.16, 2.977, 0.260, 14.12, 7, 8.4, 0, 2.44, 0, 0, 0.360, 0.318, 1.520, 0.772, 0.487, 184, 0, 47, 590, 4.57, 197, 2.033, 457, 0, 3.10, 0.563, 0.005]] ];
-        var vegetablesArray = [ ["Broccoli, raw", [34, 6.64, 0.049, 0.063, 2.82, 2.6, 373.8, 0, 0.78, 101.6, 89.2, 0.071, 0.117, 0.639, 0.573, 0.175, 63, 0, 47, 49, 0.73, 21, 0.210, 66, 2.5, 0.41, 0.316, 0.033]],
+        const vegetablesArray = [ ["Broccoli, raw", [34, 6.64, 0.049, 0.063, 2.82, 2.6, 373.8, 0, 0.78, 101.6, 89.2, 0.071, 0.117, 0.639, 0.573, 0.175, 63, 0, 47, 49, 0.73, 21, 0.210, 66, 2.5, 0.41, 0.316, 0.033]],
          ["Carrots, raw", [41, 9.58, 0.100, 0.002, 0.93, 2.8, 10023.6, 0, 0.66, 13.2, 5.9, 0.066, 0.058, 0.983, 0.273, 0.138, 19, 0, 33, 45, 0.30, 12, 0.143, 35, 0.1, 0.24, 0.320, 0.069]],
          ["Potatos, raw, skin", [58, 12.44, 0.032, 0.010, 2.57, 2.5, 0, 0, 0, 0, 11.4, 0.021, 0.038, 1.033, 0.302, 0.239, 17, 0, 30, 423, 3.24, 23, 0.602, 38, 0.3, 0.35, 0.413, 0.010]] ];
-        var fruitsArray = [ ["Apples, raw, with skin", [52, 13.81, 0.043, 0.009, 0.26, 2.4, 32.4, 0, 0.18, 2.2, 4.6, 0.017, 0.026, 0.091, 0.061, 0.041, 3, 0, 6, 27, 0.12, 5, 0.035, 11, 0, 0.04, 0.107, 0.001]],
+        const fruitsArray = [ ["Apples, raw, with skin", [52, 13.81, 0.043, 0.009, 0.26, 2.4, 32.4, 0, 0.18, 2.2, 4.6, 0.017, 0.026, 0.091, 0.061, 0.041, 3, 0, 6, 27, 0.12, 5, 0.035, 11, 0, 0.04, 0.107, 0.001]],
          ["Bananas, raw", [89, 22.84, 0.046, 0.027, 1.09, 2.6, 38.4, 0, 0.10, 0.5, 8.7, 0.031, 0.073, 0.665, 0.334, 0.367, 20, 0, 5, 78, 0.26, 27, 0.270, 22, 1.0, 0.15, 0.358, 0.001]],
          ["Oranges, raw, with peel", [63, 15.50, 0.044, 0.016, 1.30, 4.5, 150, 0, 0, 0, 71, 0.100, 0.050, 0.500, 0.330, 0.093, 30, 0, 70, 57, 0.80, 14, 0, 22, 0.7, 0.11, 0.196, 0.002]] ];
                 
         //On Button "LOG IN" click
         function logIn() {
-			var checkName = document.getElementById("inputName").value;
-            var checkEmail = document.getElementById("inputEmail").value;
-            var question = document.getElementById("personalQuestion").innerHTML;
+			let checkName = document.getElementById("inputName").value;
+            let checkEmail = document.getElementById("inputEmail").value;
+            let question = document.getElementById("personalQuestion").innerHTML;
             
 			if (checkName === "" || checkEmail === "") {
 				document.getElementById("messageFillIn").innerHTML = "Please fill in the required fields.";
@@ -69,7 +69,7 @@
         
         //If the user is female, show select box, so she can choose if pregnant or lactating
         function showSelect() {
-            var sexValue = document.getElementById("selectSex").value;
+            let sexValue = document.getElementById("selectSex").value;
             
             if (sexValue === "female") {
                 document.getElementById("selectPregnantLactating").style.display = "inline-block";
@@ -84,9 +84,9 @@
 
         //Calculate the activity coefficient used in Estimated Energy Requirements equation or required calories in our case
         function calculateActivity() {
-            var lifeStyle = document.getElementById("selectLifestyle").value;
-            var sex = document.getElementById("selectSex").value;
-            var calAct = 0;
+            let lifeStyle = document.getElementById("selectLifestyle").value;
+            let sex = document.getElementById("selectSex").value;
+            let calAct = 0;
 
             if (sex === "male") {
                 switch (lifeStyle) {
@@ -127,14 +127,14 @@
 
         //On Button "CALCULATE" click
 		function calculate() {
-			var checkAge = document.getElementById("inputAge").value;
-            var checkSex = document.getElementById("selectSex").value;
-            var checkPregnantLactating = document.getElementById("selectPregnantLactating").value;
-			var checkHeight = document.getElementById("inputHeight").value;
-            var checkWeight = document.getElementById("inputWeight").value;
-            var checkLifestyle = document.getElementById("selectLifestyle").value;
+			let checkAge = document.getElementById("inputAge").value;
+            let checkSex = document.getElementById("selectSex").value;
+            let checkPregnantLactating = document.getElementById("selectPregnantLactating").value;
+			let checkHeight = document.getElementById("inputHeight").value;
+            let checkWeight = document.getElementById("inputWeight").value;
+            let checkLifestyle = document.getElementById("selectLifestyle").value;
 
-            var activity = 0;
+            let activity = 0;
 
 			if (checkAge === "" || checkSex === "") {
 				document.getElementById("messageFillIn2").innerHTML = "Please fill in the required fields.";
@@ -404,24 +404,24 @@
 
         //Adding food artical in tableMyPlate if food is chosen in drop down menu
         function addFood(foodCategory) {
-            var foodCategoryID = foodCategory.id;
-            var foodCategoryValue = document.getElementById(foodCategoryID).value;
+            let foodCategoryID = foodCategory.id;
+            let foodCategoryValue = document.getElementById(foodCategoryID).value;
 
             if (foodCategoryValue !== "") {
                 document.getElementById("tableMyPlate").style.display = "block";
     
                 rowIndexMyPlate++;
                 
-                var tableFood = document.getElementById("tableMyPlate");
-                var rowFood = tableFood.insertRow(rowIndexMyPlate);
-                var cellFood1 = rowFood.insertCell(0);
-                var cellFood2 = rowFood.insertCell(1);
-                var cellFood3 = rowFood.insertCell(2);
-                var cellFood4 = rowFood.insertCell(3);
+                let tableFood = document.getElementById("tableMyPlate");
+                let rowFood = tableFood.insertRow(rowIndexMyPlate);
+                let cellFood1 = rowFood.insertCell(0);
+                let cellFood2 = rowFood.insertCell(1);
+                let cellFood3 = rowFood.insertCell(2);
+                let cellFood4 = rowFood.insertCell(3);
             
                 cellFood1.innerHTML = foodCategoryValue;   
         
-                var inputCell2 = document.createElement("INPUT");
+                let inputCell2 = document.createElement("INPUT");
                 inputCell2.className = "inputsMyPlate";
                 inputCell2.type = "number";
                 inputCell2.name = "quantity";
@@ -430,11 +430,11 @@
 
                 cellFood3.innerHTML = "g ";
             
-                var btnCell4 = document.createElement("BUTTON"); 
+                let btnCell4 = document.createElement("BUTTON"); 
                 btnCell4.className = "btnDelete"; 
                 btnCell4.type = "button";
                 btnCell4.addEventListener("click", deleteRow);           
-                var textBtn = document.createTextNode("Delete");
+                let textBtn = document.createTextNode("Delete");
                 btnCell4.appendChild(textBtn);     
                 cellFood4.appendChild(btnCell4);
             }
@@ -442,13 +442,13 @@
 
         //Calculating the sum of nutrients of all food and calling other function for calculating percents of fullfiled daily requirements
         function tracking() {           
-            var tableList = document.getElementById("tableMyPlate");
-            var rowsLength = tableList.rows.length;
-            var foodValue = "";
-            var nutrientValue = 0;
-            var foodQuantityCell = "";
-            var foodQuantity = 0;
-            var totalValue = 0;
+            let tableList = document.getElementById("tableMyPlate");
+            let rowsLength = tableList.rows.length;
+            let foodValue = "";
+            let nutrientValue = 0;
+            let foodQuantityCell = "";
+            let foodQuantity = 0;
+            let totalValue = 0;
 
             if (rowsLength === 1) {
                 document.getElementById("messageFillIn3").innerHTML = "Please choose your food.";
@@ -460,13 +460,13 @@
                 document.getElementById("divNutritionTracker").style.display = "block";
             
                 //Checking the food category
-                for (var indexRows = 1; indexRows < rowsLength; indexRows++) {
+                for (let indexRows = 1; indexRows < rowsLength; indexRows++) {
                     foodValue = tableList.rows.item(indexRows).cells[0].innerHTML;
  
                     //Checking if it is a grain
-                    for (var arrayIndex = 0; arrayIndex < grainsArray.length; arrayIndex++) {
+                    for (let arrayIndex = 0; arrayIndex < grainsArray.length; arrayIndex++) {
                         if (grainsArray[arrayIndex][0] === foodValue) {
-                            for (var subArrayIndex = 0; subArrayIndex < grainsArray[arrayIndex][1].length; subArrayIndex++) {
+                            for (let subArrayIndex = 0; subArrayIndex < grainsArray[arrayIndex][1].length; subArrayIndex++) {
                                 nutrientValue = grainsArray[arrayIndex][1][subArrayIndex];
                                 foodQuantityCell = tableList.rows.item(indexRows).cells[1];
                                 foodQuantity = foodQuantityCell.children[0].value;
@@ -483,9 +483,9 @@
                     }
 
                     //Checking if it is a vegetable
-                    for (var arrayIndex = 0; arrayIndex < vegetablesArray.length; arrayIndex++) {
+                    for (let arrayIndex = 0; arrayIndex < vegetablesArray.length; arrayIndex++) {
                         if (vegetablesArray[arrayIndex][0] === foodValue) {
-                            for (var subArrayIndex = 0; subArrayIndex < vegetablesArray[arrayIndex][1].length; subArrayIndex++) {
+                            for (let subArrayIndex = 0; subArrayIndex < vegetablesArray[arrayIndex][1].length; subArrayIndex++) {
                                 nutrientValue = vegetablesArray[arrayIndex][1][subArrayIndex];
                                 foodQuantityCell = tableList.rows.item(indexRows).cells[1];
                                 foodQuantity = foodQuantityCell.children[0].value;
@@ -502,9 +502,9 @@
                     }
 
                     //Cheking if it is a fruit
-                    for (var arrayIndex = 0; arrayIndex < fruitsArray.length; arrayIndex++) {
+                    for (let arrayIndex = 0; arrayIndex < fruitsArray.length; arrayIndex++) {
                         if (fruitsArray[arrayIndex][0] === foodValue) {
-                            for (var subArrayIndex = 0; subArrayIndex < fruitsArray[arrayIndex][1].length; subArrayIndex++) {
+                            for (let subArrayIndex = 0; subArrayIndex < fruitsArray[arrayIndex][1].length; subArrayIndex++) {
                                 nutrientValue = fruitsArray[arrayIndex][1][subArrayIndex];
                                 foodQuantityCell = tableList.rows.item(indexRows).cells[1];
                                 foodQuantity = foodQuantityCell.children[0].value;
@@ -532,15 +532,15 @@
 
         //calculating percenting of daily nutrients fullfilment and filling the tables cells
         function fillResults() {
-            var tableResults = document.getElementById("tableNutritionTracker");
-            var tableRequirements = document.getElementById("tableDailyRequirement");
-            var totalNut = 0;
-            var requiredNut = 0;
-            var percents = 0;
-            var rowsResultsLength = tableResults.rows.length;
-            var arrayIndex = 0;
+            let tableResults = document.getElementById("tableNutritionTracker");
+            let tableRequirements = document.getElementById("tableDailyRequirement");
+            let totalNut = 0;
+            let requiredNut = 0;
+            let percents = 0;
+            let rowsResultsLength = tableResults.rows.length;
+            let arrayIndex = 0;
 
-            for (var rowRIndex = 0; rowRIndex < rowsResultsLength; rowRIndex++) {
+            for (let rowRIndex = 0; rowRIndex < rowsResultsLength; rowRIndex++) {
                 //the if (rowRIndex !== 6 || rowRIndex !== 19) couldn't solve filling the entire table. It stops at 7th row with collspan
                 if (rowRIndex === 6 || rowRIndex === 19) {
                 }
@@ -572,7 +572,7 @@
             document.getElementById("divNutritionTracker").style.display = "none";
             
             //deleting stored values from totalNutrients array
-            for (var i = 0; i < 29; i++) {
+            for (let i = 0; i < 29; i++) {
                 totalNutrients.pop();
             }
 
