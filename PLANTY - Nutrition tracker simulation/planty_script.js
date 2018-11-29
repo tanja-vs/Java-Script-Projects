@@ -5,35 +5,44 @@
         let totalNutrients = [];
         let checkArrayTotal = 0;
 
+
+        ///////////////////////////////////////////////////////////////////
+        //Creating empty object for user's personal nutrient requirements
+        let userNutReq = {};
+        let reqCalories = 0;        
+
         //Daily required macro and micronutrients, depending on sex and age
-        var reqCalories = 0;
-        var reqTotalCarbohydrate = 0;
-        var reqLinoleicAcid = 0;
-        var reqAlphaLinoleicAcid = 0;
-        var reqProtein = 0;
-        var reqDietaryFiber = 0;
-        var reqVitA = 0;
-        var reqVitD = 0;
-        var reqVitE = 0;
-        var reqVitK = 0;
-        var reqVitC = 0;
-        var reqVitB1 = 0;
-        var reqVitB2 = 0;
-        var reqVitB3 = 0;
-        var reqVitB5 = 0;
-        var reqVitB6 = 0;
-        var reqVitB9 = 0;
-        var reqVitB12 = 0;
-        var reqCa = 0;
-        var reqCu = 0;
-        var reqFe = 0;
-        var reqMg = 0;
-        var reqMn = 0;
-        var reqP = 0;
-        var reqSe = 0;
-        var reqZn = 0;
-        var reqK = 0;
-        var reqNa = 0;
+        const USERS_NUTRIENT_REQUIRMENTS = {
+            "user": {
+                "reqTotalCarbohydrate": 0,
+                "reqLinoleicAcid": 1,
+                "reqAlphaLinoleicAcid": 2,
+                "reqProtein": 3,
+                "reqDietaryFiber": 4,
+                "reqVitA": 5,
+                "reqVitD": 6,
+                "reqVitE": 7,
+                "reqVitK": 8,
+                "reqVitC": 9,
+                "reqVitB1": 10,
+                "reqVitB2": 11,
+                "reqVitB3": 12,
+                "reqVitB5": 13,
+                "reqVitB6": 14,
+                "reqVitB9": 15,
+                "reqVitB12": 16,
+                "reqCa": 17,
+                "reqCu": 18,
+                "reqFe": 19,
+                "reqMg": 20,
+                "reqMn": 21,
+                "reqP": 22,
+                "reqSe": 23,
+                "reqZn": 24,
+                "reqK": 25,
+                "reqNa": 26
+            }
+        };
 
         //Food's nutritional value 
         //Calories, TotalCarbohydrate, LinoleicAcid, AlphaLinoleicAcid, Protein, DietaryFiber, VitA, VitD, VitE, VitK, VitC, VitB1, VitB2, VitB3
@@ -125,22 +134,22 @@
             return calAct;
         }
 
-        //On Button "CALCULATE" click
+        //Calculate energy requirements and show the personalized daily nutrient requirements
 		function calculate() {
-			let checkAge = document.getElementById("inputAge").value;
-            let checkSex = document.getElementById("selectSex").value;
-            let checkPregnantLactating = document.getElementById("selectPregnantLactating").value;
-			let checkHeight = document.getElementById("inputHeight").value;
-            let checkWeight = document.getElementById("inputWeight").value;
-            let checkLifestyle = document.getElementById("selectLifestyle").value;
-
+			let age = document.getElementById("inputAge").value;
+            let sex = document.getElementById("selectSex").value;
+            let pregnantOrLactating = document.getElementById("selectPregnantLactating").value;
+			let height = document.getElementById("inputHeight").value;
+            let weight = document.getElementById("inputWeight").value;
+            let lifestyle = document.getElementById("selectLifestyle").value;
+            //Inicializing activity coeficient, wich depends of sex, pregnant or lactating and activity
             let activity = 0;
 
-			if (checkAge === "" || checkSex === "") {
+			if (age === "" || sex === "") {
 				document.getElementById("messageFillIn2").innerHTML = "Please fill in the required fields.";
             }
             
-            else if ((checkHeight === "" || checkWeight === "") || checkLifestyle === "") {
+            else if ((height === "" || weight === "") || lifestyle === "") {
 				document.getElementById("messageFillIn2").innerHTML = "Please fill in the required fields.";
             }
 
@@ -152,9 +161,9 @@
                 activity = calculateActivity();
 
                 //Calculating when user is male
-                if (checkSex === "male") {
+                if (sex === "male") {
                     //Calculating required calories
-                    reqCalories = 662 - (9.53 * checkAge) + activity * ( (15.91 * checkWeight) + (539.6 * checkHeight / 100) );
+                    reqCalories = 662 - (9.53 * age) + activity * ( (15.91 * weight) + (539.6 * height / 100) );
 
                     //Calculating required micro and macro nutrients
                     reqTotalCarbohydrate = 130;
@@ -178,7 +187,7 @@
                     reqZn = 11;
                     reqK = 4.7;
 
-                    if (checkAge <= 50) {
+                    if (age <= 50) {
                         reqVitB6 = 1.3;
                         reqDietaryFiber = 38;
                         reqLinoleicAcid = 17;
@@ -189,7 +198,7 @@
                         reqLinoleicAcid = 14;
                     }
 
-                    if (checkAge > 70) {
+                    if (age > 70) {
                         reqCa = 1200;
                         reqVitD = 20;
                     }
@@ -198,17 +207,17 @@
                         reqVitD = 15;
                     }
                     
-                    if (checkAge <= 30) {
+                    if (age <= 30) {
                         reqMg = 400;
                     }
                     else {
                         reqMg = 420;
                     }
                     
-                    if (checkAge > 50 && checkAge <= 70) {
+                    if (age > 50 && age <= 70) {
                         reqNa = 1.3;
                     }
-                    else if (checkAge > 70) {
+                    else if (age > 70) {
                         reqNa = 1.2;
                     }
                     else {
@@ -218,13 +227,13 @@
 
 
                 //Calculating when user is female
-                else if (checkSex === "female") {
-                    reqCalories = 354 - (6.91 * checkAge) + activity * ( (9.36 * checkWeight) + (726 * checkHeight / 100) );
+                else if (sex === "female") {
+                    reqCalories = 354 - (6.91 * age) + activity * ( (9.36 * weight) + (726 * height / 100) );
                    
 
                     //Calculating when the user is pregnant or lactating
-                    if (checkPregnantLactating !== "") {
-                        switch (checkPregnantLactating) {
+                    if (pregnantOrLactating !== "") {
+                        switch (pregnantOrLactating) {
                             case "pregnant2":
                                 reqCalories += 340;
                                 break;
@@ -261,14 +270,14 @@
                     reqZn = 8;
                     reqK = 4.7;
 
-                    if (checkAge > 70) {
+                    if (age > 70) {
                         reqVitD = 20;
                     }
                     else {
                         reqVitD = 15;
                     }
                     
-                    if (checkAge > 50) {
+                    if (age > 50) {
                         reqCa = 1200;
                         reqFe = 8;
                         reqVitB6 = 1.5;
@@ -283,17 +292,17 @@
                         reqDietaryFiber = 25;
                     }
                     
-                    if (checkAge <= 30) {
+                    if (age <= 30) {
                         reqMg = 310;
                     }
                     else {
                         reqMg = 320;
                     }
                     
-                    if (checkAge > 50 && checkAge <= 70) {
+                    if (age > 50 && age <= 70) {
                         reqNa = 1.3;
                     }
-                    else if (checkAge > 70) {
+                    else if (age > 70) {
                         reqNa = 1.2;
                     }
                     else {
@@ -301,8 +310,8 @@
                     }
 
                     //Calculating when the user is pregnant or lactating
-                    if (checkPregnantLactating !== "") {
-                        switch (checkPregnantLactating) {
+                    if (pregnantOrLactating !== "") {
+                        switch (pregnantOrLactating) {
                             case "pregnant1":
                             case "pregnant2":
                             case "pregnant3":
@@ -354,36 +363,23 @@
                             }
                         }
                 }
+
+                //Filling user object with his personal nutrients requirements
+                userNutReq = USERS_NUTRIENT_REQUIRMENTS["user"];
+                userNutReq["reqCalories"] = reqCalories;
                 
-                //Filling the table "Daily Requirement" cells
-                document.getElementById("calories").innerHTML = reqCalories.toFixed(2);
-                document.getElementById("totalCarbohydrate").innerHTML = reqTotalCarbohydrate;
-                document.getElementById("linoleicAcid").innerHTML = reqLinoleicAcid;
-                document.getElementById("alfaLinoleicAcid").innerHTML = reqAlphaLinoleicAcid;
-                document.getElementById("protein").innerHTML = reqProtein;
-                document.getElementById("dietaryFiber").innerHTML = reqDietaryFiber;
-                document.getElementById("vitA").innerHTML = reqVitA;
-                document.getElementById("vitD").innerHTML = reqVitD;
-                document.getElementById("vitE").innerHTML = reqVitE;
-                document.getElementById("vitK").innerHTML = reqVitK;
-                document.getElementById("vitC").innerHTML = reqVitC;
-                document.getElementById("vitB1").innerHTML = reqVitB1;
-                document.getElementById("vitB2").innerHTML = reqVitB2;
-                document.getElementById("vitB3").innerHTML = reqVitB3;
-                document.getElementById("vitB5").innerHTML = reqVitB5;
-                document.getElementById("vitB6").innerHTML = reqVitB6;
-                document.getElementById("vitB9").innerHTML = reqVitB9;
-                document.getElementById("vitB12").innerHTML = reqVitB12;
-                document.getElementById("calcium").innerHTML = reqCa;
-                document.getElementById("copper").innerHTML = reqCu;
-                document.getElementById("iron").innerHTML = reqFe;
-                document.getElementById("magnesium").innerHTML = reqMg;
-                document.getElementById("manganese").innerHTML = reqMn;
-                document.getElementById("phosphorus").innerHTML = reqP;
-                document.getElementById("selenium").innerHTML = reqSe;
-                document.getElementById("zinc").innerHTML = reqZn;
-                document.getElementById("potassium").innerHTML = reqK;
-                document.getElementById("sodium").innerHTML = reqNa;
+                //Filling the table "Daily Requirement"
+                let tableReq = document.getElementById("tableDailyRequirement");
+                let cellId = "";
+
+                for (let rowIndex = 0; rowIndex < tableReq.rows.length; rowIndex++) {
+                    if (rowIndex == 6 || rowIndex == 19) {
+                    }
+                    else {
+                        cellId = tableReq.rows.item(rowIndex).cells[1].id;
+                        tableReq.rows.item(rowIndex).cells[1].innerHTML = userNutReq[cellId];
+                    }
+                }
             }
             
 		}
