@@ -117,12 +117,13 @@
                 document.getElementById("messageFillIn2").innerHTML = "This app is not for users under 18 years";    
             }
 
+            //If the form is filled, calculate
             else {   
                 scrollTo(0,0);         
                 document.getElementById("divPersonalInfo").style.display = "none";
                 document.getElementById("divDailyRequirement").style.display = "block";
 
-                 //Calculate the activity coefficient used in Estimated Energy Requirements equation or required calories in our case
+                //Calculate the activity coefficient used in Estimated Energy Requirements equation or required calories in our case
                 if (sex === "male") {
                     switch (lifestyle) {
                         case "sedentary":
