@@ -22,34 +22,295 @@
          
         //Daily required macro and micronutrients, depending on age, sex, if pregnant or lactating
         const USERS_NUTRIENT_REQUIRMENTS = {
-            "user": {
-                "reqTotalCarbohydrate": 0,
-                "reqLinoleicAcid": 1,
-                "reqAlphaLinoleicAcid": 2,
-                "reqProtein": 3,
-                "reqDietaryFiber": 4,
-                "reqVitA": 5,
-                "reqVitD": 6,
-                "reqVitE": 7,
-                "reqVitK": 8,
-                "reqVitC": 9,
-                "reqVitB1": 10,
-                "reqVitB2": 11,
-                "reqVitB3": 12,
-                "reqVitB5": 13,
-                "reqVitB6": 14,
-                "reqVitB9": 15,
-                "reqVitB12": 16,
-                "reqCa": 17,
-                "reqCu": 18,
-                "reqFe": 19,
-                "reqMg": 20,
-                "reqMn": 21,
-                "reqP": 22,
-                "reqSe": 23,
-                "reqZn": 24,
-                "reqK": 25,
-                "reqNa": 26
+            "maleReq18": {
+                "reqTotalCarbohydrate": 130,
+                "reqLinoleicAcid": 17,
+                "reqAlphaLinoleicAcid": 1.6,
+                "reqProtein": 56,
+                "reqDietaryFiber": 38,
+                "reqVitA": 900,
+                "reqVitD": 15,
+                "reqVitE": 15,
+                "reqVitK": 120,
+                "reqVitC": 90,
+                "reqVitB1": 1.2,
+                "reqVitB2": 1.3,
+                "reqVitB3": 16,
+                "reqVitB5": 5,
+                "reqVitB6": 1.3,
+                "reqVitB9": 400,
+                "reqVitB12": 2.4,
+                "reqCa": 1000,
+                "reqCu": 900,
+                "reqFe": 8,
+                "reqMg": 400,
+                "reqMn": 2.3,
+                "reqP": 700,
+                "reqSe": 55,
+                "reqZn": 11,
+                "reqK": 4.7,
+                "reqNa": 1.5
+            },
+            "maleReq31": {
+                "reqTotalCarbohydrate": 130,
+                "reqLinoleicAcid": 17,
+                "reqAlphaLinoleicAcid": 1.6,
+                "reqProtein": 56,
+                "reqDietaryFiber": 38,
+                "reqVitA": 900,
+                "reqVitD": 15,
+                "reqVitE": 15,
+                "reqVitK": 120,
+                "reqVitC": 90,
+                "reqVitB1": 1.2,
+                "reqVitB2": 1.3,
+                "reqVitB3": 16,
+                "reqVitB5": 5,
+                "reqVitB6": 1.3,
+                "reqVitB9": 400,
+                "reqVitB12": 2.4,
+                "reqCa": 1000,
+                "reqCu": 900,
+                "reqFe": 8,
+                "reqMg": 420,
+                "reqMn": 2.3,
+                "reqP": 700,
+                "reqSe": 55,
+                "reqZn": 11,
+                "reqK": 4.7,
+                "reqNa": 1.5
+            },
+            "maleReq51": {
+                "reqTotalCarbohydrate": 130,
+                "reqLinoleicAcid": 14,
+                "reqAlphaLinoleicAcid": 1.6,
+                "reqProtein": 56,
+                "reqDietaryFiber": 30,
+                "reqVitA": 900,
+                "reqVitD": 15,
+                "reqVitE": 15,
+                "reqVitK": 120,
+                "reqVitC": 90,
+                "reqVitB1": 1.2,
+                "reqVitB2": 1.3,
+                "reqVitB3": 16,
+                "reqVitB5": 5,
+                "reqVitB6": 1.7,
+                "reqVitB9": 400,
+                "reqVitB12": 2.4,
+                "reqCa": 1000,
+                "reqCu": 900,
+                "reqFe": 8,
+                "reqMg": 420,
+                "reqMn": 2.3,
+                "reqP": 700,
+                "reqSe": 55,
+                "reqZn": 11,
+                "reqK": 4.7,
+                "reqNa": 1.3
+            },
+            "maleReq71": {
+                "reqTotalCarbohydrate": 130,
+                "reqLinoleicAcid": 14,
+                "reqAlphaLinoleicAcid": 1.6,
+                "reqProtein": 56,
+                "reqDietaryFiber": 30,
+                "reqVitA": 900,
+                "reqVitD": 20,
+                "reqVitE": 15,
+                "reqVitK": 120,
+                "reqVitC": 90,
+                "reqVitB1": 1.2,
+                "reqVitB2": 1.3,
+                "reqVitB3": 16,
+                "reqVitB5": 5,
+                "reqVitB6": 1.7,
+                "reqVitB9": 400,
+                "reqVitB12": 2.4,
+                "reqCa": 1200,
+                "reqCu": 900,
+                "reqFe": 8,
+                "reqMg": 420,
+                "reqMn": 2.3,
+                "reqP": 700,
+                "reqSe": 55,
+                "reqZn": 11,
+                "reqK": 4.7,
+                "reqNa": 1.2
+            },                                                        
+            "femaleReq18": {
+                "reqTotalCarbohydrate": 130,
+                "reqLinoleicAcid": 12,
+                "reqAlphaLinoleicAcid": 1.1,
+                "reqProtein": 46,
+                "reqDietaryFiber": 25,
+                "reqVitA": 700,
+                "reqVitD": 15,
+                "reqVitE": 15,
+                "reqVitK": 90,
+                "reqVitC": 75,
+                "reqVitB1": 1.1,
+                "reqVitB2": 1.1,
+                "reqVitB3": 14,
+                "reqVitB5": 5,
+                "reqVitB6": 1.3,
+                "reqVitB9": 400,
+                "reqVitB12": 2.4,
+                "reqCa": 1000,
+                "reqCu": 900,
+                "reqFe": 18,
+                "reqMg": 310,
+                "reqMn": 1.8,
+                "reqP": 700,
+                "reqSe": 55,
+                "reqZn": 8,
+                "reqK": 4.7,
+                "reqNa": 1.5
+            },
+            "femaleReq31": {
+                "reqTotalCarbohydrate": 130,
+                "reqLinoleicAcid": 12,
+                "reqAlphaLinoleicAcid": 1.1,
+                "reqProtein": 46,
+                "reqDietaryFiber": 25,
+                "reqVitA": 700,
+                "reqVitD": 15,
+                "reqVitE": 15,
+                "reqVitK": 90,
+                "reqVitC": 75,
+                "reqVitB1": 1.1,
+                "reqVitB2": 1.1,
+                "reqVitB3": 14,
+                "reqVitB5": 5,
+                "reqVitB6": 1.3,
+                "reqVitB9": 400,
+                "reqVitB12": 2.4,
+                "reqCa": 1000,
+                "reqCu": 900,
+                "reqFe": 18,
+                "reqMg": 320,
+                "reqMn": 1.8,
+                "reqP": 700,
+                "reqSe": 55,
+                "reqZn": 8,
+                "reqK": 4.7,
+                "reqNa": 1.5
+            },
+            "femaleReq51": {
+                "reqTotalCarbohydrate": 130,
+                "reqLinoleicAcid": 11,
+                "reqAlphaLinoleicAcid": 1.1,
+                "reqProtein": 46,
+                "reqDietaryFiber": 21,
+                "reqVitA": 700,
+                "reqVitD": 15,
+                "reqVitE": 15,
+                "reqVitK": 90,
+                "reqVitC": 75,
+                "reqVitB1": 1.1,
+                "reqVitB2": 1.1,
+                "reqVitB3": 14,
+                "reqVitB5": 5,
+                "reqVitB6": 1.5,
+                "reqVitB9": 400,
+                "reqVitB12": 2.4,
+                "reqCa": 1200,
+                "reqCu": 900,
+                "reqFe": 8,
+                "reqMg": 320,
+                "reqMn": 1.8,
+                "reqP": 700,
+                "reqSe": 55,
+                "reqZn": 8,
+                "reqK": 4.7,
+                "reqNa": 1.3
+            },
+            "femaleReq71": {
+                "reqTotalCarbohydrate": 130,
+                "reqLinoleicAcid": 11,
+                "reqAlphaLinoleicAcid": 1.1,
+                "reqProtein": 46,
+                "reqDietaryFiber": 21,
+                "reqVitA": 700,
+                "reqVitD": 20,
+                "reqVitE": 15,
+                "reqVitK": 90,
+                "reqVitC": 75,
+                "reqVitB1": 1.1,
+                "reqVitB2": 1.1,
+                "reqVitB3": 14,
+                "reqVitB5": 5,
+                "reqVitB6": 1.5,
+                "reqVitB9": 400,
+                "reqVitB12": 2.4,
+                "reqCa": 1200,
+                "reqCu": 900,
+                "reqFe": 8,
+                "reqMg": 320,
+                "reqMn": 1.8,
+                "reqP": 700,
+                "reqSe": 55,
+                "reqZn": 8,
+                "reqK": 4.7,
+                "reqNa": 1.2
+            },
+            "femalePregnant": {
+                "reqTotalCarbohydrate": 175,
+                "reqLinoleicAcid": 13,
+                "reqAlphaLinoleicAcid": 1.4,
+                "reqProtein": 71,
+                "reqDietaryFiber": 28,
+                "reqVitA": 770,
+                "reqVitD": 15,
+                "reqVitE": 15,
+                "reqVitK": 90,
+                "reqVitC": 85,
+                "reqVitB1": 1.4,
+                "reqVitB2": 1.4,
+                "reqVitB3": 18,
+                "reqVitB5": 6,
+                "reqVitB6": 1.9,
+                "reqVitB9": 600,
+                "reqVitB12": 2.6,
+                "reqCa": 1000,
+                "reqCu": 1000,
+                "reqFe": 27,
+                "reqMg": 360,
+                "reqMn": 2,
+                "reqP": 700,
+                "reqSe": 60,
+                "reqZn": 11,
+                "reqK": 4.7,
+                "reqNa": 1.5
+            },
+            "femaleLactating": {
+                "reqTotalCarbohydrate": 210,
+                "reqLinoleicAcid": 13,
+                "reqAlphaLinoleicAcid": 1.3,
+                "reqProtein": 71,
+                "reqDietaryFiber": 29,
+                "reqVitA": 1300,
+                "reqVitD": 15,
+                "reqVitE": 15,
+                "reqVitK": 90,
+                "reqVitC": 120,
+                "reqVitB1": 1.4,
+                "reqVitB2": 1.6,
+                "reqVitB3": 17,
+                "reqVitB5": 7,
+                "reqVitB6": 2,
+                "reqVitB9": 500,
+                "reqVitB12": 2.8,
+                "reqCa": 1000,
+                "reqCu": 1300,
+                "reqFe": 9,
+                "reqMg": 310,
+                "reqMn": 2.6,
+                "reqP": 700,
+                "reqSe": 70,
+                "reqZn": 12,
+                "reqK": 5.1,
+                "reqNa": 1.5
             }
         };
 
@@ -123,8 +384,9 @@
                 document.getElementById("divPersonalInfo").style.display = "none";
                 document.getElementById("divDailyRequirement").style.display = "block";
 
-                //Calculate the activity coefficient used in Estimated Energy Requirements equation or required calories in our case
+                //Calculating calories and daily nutrient requirements
                 if (sex === "male") {
+                    //Calculating activity coeficient and required daily calories
                     switch (lifestyle) {
                         case "sedentary":
                             activity = 1;
@@ -139,9 +401,26 @@
                             activity = 1.48;
                             break;
                     }
+
+                    reqCalories = 662 - (9.53 * age) + activity * ( (15.91 * weight) + (539.6 * height / 100) );
+
+                    //Asigning age specific nutrient requirements
+                    if (18 <= age <= 30) {
+                        userNutReq = USERS_NUTRIENT_REQUIRMENTS["maleReq18"];
+                    }
+                    else if (31 <= age <= 50) {
+                        userNutReq = USERS_NUTRIENT_REQUIRMENTS["maleReq31"];
+                    }
+                    else if (51 <= age <= 70) {
+                        userNutReq = USERS_NUTRIENT_REQUIRMENTS["maleReq51"];
+                    }
+                    else if (age >= 71) {
+                        userNutReq = USERS_NUTRIENT_REQUIRMENTS["maleReq71"];
+                    }
                 }
 
                 else if (sex === "female") {
+                    //Calculating activity coeficient and required daily calories
                     switch (lifestyle) {
                         case "sedentary":
                             activity = 1;
@@ -156,80 +435,10 @@
                             activity = 1.45;
                             break;
                     }
-                }
 
-                //Calculating calories and daily nutrient requirements
-                if (sex === "male") {
-                    //Calculating required calories
-                    reqCalories = 662 - (9.53 * age) + activity * ( (15.91 * weight) + (539.6 * height / 100) );
-
-                    //Calculating required micro and macro nutrients
-                    reqTotalCarbohydrate = 130;
-                    reqAlphaLinoleicAcid = 1.6;
-                    reqProtein = 56;
-                    reqVitA = 900;                    
-                    reqVitE = 15;
-                    reqVitK = 120;
-                    reqVitC = 90;
-                    reqVitB1 = 1.2;
-                    reqVitB2 = 1.3;
-                    reqVitB3 = 16;
-                    reqVitB5 = 5;
-                    reqVitB9 = 400;
-                    reqVitB12 = 2.4;
-                    reqCu = 900;
-                    reqFe = 8;
-                    reqMn = 2.3;
-                    reqP = 700;
-                    reqSe = 55;
-                    reqZn = 11;
-                    reqK = 4.7;
-
-                    if (age <= 50) {
-                        reqVitB6 = 1.3;
-                        reqDietaryFiber = 38;
-                        reqLinoleicAcid = 17;
-                    }
-                    else {
-                        reqVitB6 = 1.7;
-                        reqDietaryFiber = 30;
-                        reqLinoleicAcid = 14;
-                    }
-
-                    if (age > 70) {
-                        reqCa = 1200;
-                        reqVitD = 20;
-                    }
-                    else {
-                        reqCa = 1000;
-                        reqVitD = 15;
-                    }
-                    
-                    if (age <= 30) {
-                        reqMg = 400;
-                    }
-                    else {
-                        reqMg = 420;
-                    }
-                    
-                    if (age > 50 && age <= 70) {
-                        reqNa = 1.3;
-                    }
-                    else if (age > 70) {
-                        reqNa = 1.2;
-                    }
-                    else {
-                        reqNa = 1.5;
-                    }
-                }
-
-
-                //Calculating when user is female
-                else if (sex === "female") {
                     reqCalories = 354 - (6.91 * age) + activity * ( (9.36 * weight) + (726 * height / 100) );
-                   
-
-                    //Calculating when the user is pregnant or lactating
+                                       
+                    //Calculating calories & nutrient requirements when the user is pregnant or lactating
                     if (pregnantOrLactating !== "") {
                         switch (pregnantOrLactating) {
                             case "pregnant2":
@@ -245,137 +454,49 @@
                                 reqCalories += 400;
                                 break;
                         }
-                    }
 
-                    //Calculating required micro and macro nutrients
-                    reqTotalCarbohydrate = 130;
-                    reqAlphaLinoleicAcid = 1.1;
-                    reqProtein = 46;
-                    reqVitA = 700;                    
-                    reqVitE = 15;
-                    reqVitK = 90;
-                    reqVitC = 75;
-                    reqVitB1 = 1.1;
-                    reqVitB2 = 1.1;
-                    reqVitB3 = 14;
-                    reqVitB5 = 5;
-                    reqVitB9 = 400;
-                    reqVitB12 = 2.4;
-                    reqCu = 900;
-                    reqMn = 1.8;
-                    reqP = 700;
-                    reqSe = 55;
-                    reqZn = 8;
-                    reqK = 4.7;
-
-                    if (age > 70) {
-                        reqVitD = 20;
-                    }
-                    else {
-                        reqVitD = 15;
-                    }
-                    
-                    if (age > 50) {
-                        reqCa = 1200;
-                        reqFe = 8;
-                        reqVitB6 = 1.5;
-                        reqLinoleicAcid = 11;
-                        reqDietaryFiber = 21;
-                    }
-                    else {
-                        reqCa = 1000;
-                        reqFe = 18;
-                        reqVitB6 = 1.3;
-                        reqLinoleicAcid = 12;
-                        reqDietaryFiber = 25;
-                    }
-                    
-                    if (age <= 30) {
-                        reqMg = 310;
-                    }
-                    else {
-                        reqMg = 320;
-                    }
-                    
-                    if (age > 50 && age <= 70) {
-                        reqNa = 1.3;
-                    }
-                    else if (age > 70) {
-                        reqNa = 1.2;
-                    }
-                    else {
-                        reqNa = 1.5;
-                    }
-
-                    //Calculating when the user is pregnant or lactating
-                    if (pregnantOrLactating !== "") {
                         switch (pregnantOrLactating) {
                             case "pregnant1":
                             case "pregnant2":
                             case "pregnant3":
-                                reqTotalCarbohydrate = 175;
-                                reqLinoleicAcid = 13;
-                                reqAlphaLinoleicAcid = 1.4;
-                                reqProtein = 71;
-                                reqDietaryFiber = 28;
-                                reqVitA = 770;
-                                reqVitC = 85;
-                                reqVitB1 = 1.4;
-                                reqVitB2 = 1.4;
-                                reqVitB3 = 18;
-                                reqVitB5 = 6;
-                                reqVitB6 = 1.9;
-                                reqVitB9 = 600;
-                                reqVitB12 = 2.6;
-                                reqCu = 1000;
-                                reqFe = 27;
-                                reqMg = 360;
-                                reqMn = 2;
-                                reqSe = 60;
-                                reqZn = 11;
+                                userNutReq = USERS_NUTRIENT_REQUIRMENTS["femalePregnant"];
                                 break;
                             case "lactating1":
                             case "lactating2":
-                                reqTotalCarbohydrate = 210;
-                                reqLinoleicAcid = 13;
-                                reqAlphaLinoleicAcid = 1.3;
-                                reqProtein = 71;
-                                reqDietaryFiber = 29;
-                                reqVitA = 1300;
-                                reqVitC = 120;
-                                reqVitE = 19;
-                                reqVitB1 = 1.4;
-                                reqVitB2 = 1.6;
-                                reqVitB3 = 17;
-                                reqVitB5 = 7;
-                                reqVitB6 = 2;
-                                reqVitB9 = 500;
-                                reqVitB12 = 2.8;
-                                reqCu = 1300;
-                                reqFe = 9;
-                                reqMn = 2.6;
-                                reqSe = 70;
-                                reqZn = 12;
-                                reqK = 5.1;
+                                userNutReq = USERS_NUTRIENT_REQUIRMENTS["femaleLactating"];
                                 break;
-                            }
                         }
+                    }
+                    else {
+                        //Asigning age specific nutrient requirements
+                        if (18 <= age <= 30) {
+                            userNutReq = USERS_NUTRIENT_REQUIRMENTS["femaleReq18"];
+                        }
+                        else if (31 <= age <= 50) {
+                            userNutReq = USERS_NUTRIENT_REQUIRMENTS["femaleReq31"];
+                        }
+                        else if (51 <= age <= 70) {
+                            userNutReq = USERS_NUTRIENT_REQUIRMENTS["femaleReq51"];
+                        }
+                        else if (age >= 71) {
+                            userNutReq = USERS_NUTRIENT_REQUIRMENTS["femaleReq71"];
+                        }
+                    }                   
                 }
 
-                userNutReq = USERS_NUTRIENT_REQUIRMENTS["user"];
                 //Adding calories property to user's object with nutrient requrements
                 userNutReq["reqCalories"] = reqCalories.toFixed(0);
                 
                 //Filling the table "Daily Requirement"
                 let tableReq = document.getElementById("tableDailyRequirement");
-                let cellId = "";
+                let cellReqId = "";
 
                 for (let rowIndex = 0; rowIndex < tableReq.rows.length; rowIndex++) {
                     if (rowIndex == 6 || rowIndex == 19) {
                     }
                     else {
-                        cellId = tableReq.rows.item(rowIndex).cells[1].id;
-                        tableReq.rows.item(rowIndex).cells[1].innerHTML = userNutReq[cellId];
+                        cellReqId = tableReq.rows.item(rowIndex).cells[1].id;
+                        tableReq.rows.item(rowIndex).cells[1].innerHTML = userNutReq[cellReqId];
                     }
                 }
             }
