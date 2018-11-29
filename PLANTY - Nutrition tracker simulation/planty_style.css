@@ -85,7 +85,7 @@
         }
         
         #divLogIn, #divPersonalInfo, #divDailyRequirement, #divQuestion, #divFoodSelection, #divNutritionTracker {
-            background-color: #3be8ba;
+            background-color: #ede8e5;
             color: #4f4d4b;
             text-align: center;
 			font-family: 'Hind Siliguri', sans-serif;
@@ -111,12 +111,10 @@
         }
 
         #divFoodSelection {
-            background-color: #ede8e5;
             width: 80vw;
         }
 
         #divNutritionTracker {
-            background-color: #ede8e5;
             margin-top: 2.5vw;
         }
 
@@ -164,7 +162,7 @@
         }
 
         .btns:hover {
-            color: #3be8ba;
+            background-color: #3be8ba;
         }
 
         #messageFillIn, #messageFillIn2, #messageFillIn3 {
