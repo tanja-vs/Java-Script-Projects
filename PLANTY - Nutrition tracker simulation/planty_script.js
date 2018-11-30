@@ -795,7 +795,7 @@
                 let cellFood3 = rowFood.insertCell(2);
                 let cellFood4 = rowFood.insertCell(3);
             
-                cellFood1.innerHTML = foodCategoryValue;   
+                cellFood1.innerHTML = foodCategoryValue;  
         
                 let inputCell2 = document.createElement("INPUT");
                 inputCell2.className = "inputsMyPlate";
@@ -929,11 +929,11 @@
 
                             if (percents >= 100) {
                                 tableResult.rows.item(rowIndex).cells[1].children[0].style.width = "100%";
-                                tableResult.rows.item(rowIndex).cells[1].children[0].style.backgroundColor = "#3be8ba";
+                                tableResult.rows.item(rowIndex).cells[1].children[0].style.backgroundColor = "#8aff75";
                             }
                             else {
                                 tableResult.rows.item(rowIndex).cells[1].children[0].style.width = percents.toFixed(0) + "%";
-                                tableResult.rows.item(rowIndex).cells[1].children[0].style.backgroundColor = "#e83b52";
+                                tableResult.rows.item(rowIndex).cells[1].children[0].style.backgroundColor = "#ff758a";
                             }
                         }
                     }

@@ -5,40 +5,35 @@
         }
 
         #mainOne {
-            min-height: 60vh;
+            min-height: 65vh;
         }
 
-        #headerOne, #divLogo {
+        #headerOne, #divLogo, #navUl {
             background-color: white;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
+            max-height: 42px;
         }
-
-		#imgLogo {
-			height: 5vw;
-			width: 5vw;
-			margin-left: 6vw;
-		}
 
 		#headlineLogo {
 			font-family: 'Abril Fatface', cursive;
-			font-size: 2.6vw;
-			color: #e83b52;
-			margin-left: 1.5vw;
+			font-size: 25px;
+            color: #8aff75; 
+			margin-left: 25px;
 		}
 
 		#paragLogo {
 			font-family: 'Pattaya', sans-serif;
-			font-size: 2vw;
+			font-size: 18px;
 			color: #4f4d4b;
-			margin-left: 2vw;
+			margin-left: 18px;
         }
 
         #ulNav {
-            margin-right: 6vw;
+            margin-right: 25px;
         }
 
         .liNav {
@@ -49,51 +44,59 @@
             color: #4f4d4b;
             text-decoration: none;
             font-family: 'Hind Siliguri', sans-serif;
-            font-size: 1.5vw;
+            font-size: 13px;
             font-weight: bold;
-            margin-left: 2vw;
+            margin-left: 18px;
         }
 
         .aNav:hover {
-            color: #e83b52;
+            color: #ff758a;
         }
 
         #footerOne {
-            margin-top: 5vw;
-            margin-bottom: 2.5vw;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            margin-bottom: 10px;
             background-color: white;
-            text-align: center;
+            text-align: left;
             font-weight: bold;
-            font-size: 1.3vw;
-            font-family: 'Abril Fatface', cursive;
-            color: #e83b52;
-        }
-
-        #spanFooter {
+            font-size: 11px;
             font-family: 'Hind Siliguri', sans-serif;
             color: #4f4d4b;
         }
 
+        #spanFooter {
+            font-family: 'Abril Fatface', cursive;
+            color: #8aff75;
+            font-size: 12px;
+        }
+
         #portfolioLink {
+            font-size: 11px;
             text-decoration: none;
             font-family: 'Hind Siliguri', sans-serif;
             color: #4f4d4b;
         }
 
         #portfolioLink:hover {
-            color: #e83b52;
+            color: #ff758a;
         }
         
         #divLogIn, #divPersonalInfo, #divDailyRequirement, #divQuestion, #divFoodSelection, #divNutritionTracker {
-            background-color: #ede8e5;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+            background-color: #f7f5f3;
             color: #4f4d4b;
             text-align: center;
 			font-family: 'Hind Siliguri', sans-serif;
-            font-size: 1.3vw;
-            border-radius: 6vw;
-            width: 30vw;
-            margin-top: 3vw;
-			padding: 3vw 6vw 3vw 6vw;
+            font-size: 12px;
+            border-radius: 50px;
+            width: 300px;
+            margin-top: 50px;
+			padding: 25px 50px 25px 30px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -103,47 +106,49 @@
         }
 
         #container {
-            color: transparent;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
+            margin-bottom: 25px;
         }
 
         #divFoodSelection {
-            width: 80vw;
-        }
-
-        #divNutritionTracker {
-            margin-top: 2.5vw;
+            width: 80%;
         }
 
         #formLogIn, #formPersonalInfo, #formDailyFood, #formMyPlate {
             margin-left: auto;
             margin-right: auto;
             font-weight: bold;
-            font-size: 1.3vw;
+            font-family: 'Hind Siliguri', sans-serif;
+            font-size: 12px;
+        }
+
+        #formMyPlate {
+            margin-top: 20px;
         }
 
         .inputs, .inputsDF, .inputsMyPlate {
-            margin: 0.5vw;
+            margin: 8px;
             color: #4f4d4b;
             text-align: center;
 			font-family: 'Hind Siliguri', sans-serif;
-            font-size: 1.1vw;
-            padding: 0.2vw;
-            width: 17vw;
+            font-size: 10px;
+            padding: 2px;
+            width: 175px;
             border: none;
-            border-radius: 2vw;
+            border-radius: 5px;
         }
 
         .inputsDF {
-            margin: 1.5vw;
+            margin: 15px;
         }
 
         .inputsMyPlate {
-            margin: 0vw 0.5vw 0vw 0vw;  
-            width: 4vw;
+            width: 50px;
+            margin: 0px;
         }
 
         #selectPregnantLactating, #pregnantLactating {
@@ -151,18 +156,29 @@
         }
         
         .btns {
-            background-color: #e83b52;
+            background-color: #ff758a;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
             color: white;
             font-family: 'Hind Siliguri', sans-serif;
-            font-size: 1.5vw;
+            font-size: 13px;
             font-weight: bold;
-            padding: 0.25vw 1.5vw 0.25vw 1.5vw;
+            margin-top: 22px;
+            padding: 3px 15px 3px 15px;
             border: none;
-            border-radius: 1.5vw;
+            border-radius: 15px;
         }
 
         .btns:hover {
-            background-color: #3be8ba;
+            background-color: #e06374;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        #btnTracking {
+            margin-top: 5px;
+        }
+
+        #btnCheckMyDay, #btnNext, #btnAddMore {
+            margin-bottom: 15px;
         }
 
         #messageFillIn, #messageFillIn2, #messageFillIn3 {
@@ -170,7 +186,7 @@
         }
 
         #tableDailyRequirement, #tableMyPlate, #tableNutritionTracker, #tablePersonalInfo {
-            width: 90%;
+            width: 95%;
             margin-right: auto;
             margin-left: auto;
             text-align: left;
@@ -180,20 +196,21 @@
             width: 40%;
             table-layout: fixed;
             display: none;
-            margin-bottom: 2.5vw;
+            padding-top: 0px;
+            padding-bottom: 0px;
         }
 
         #tableNutritionTracker {
             width: 75%;
             border-collapse: separate;
-            border-spacing: 0vw 1vw;
+            border-spacing: 0px 10px;
         }
 
         .tableHeaders, .tableHeadersNT {
-            font-size: 1.5vw;
+            font-size: 12px;
             font-weight: bold;
             text-align: left;
-            padding: 1vw 0vw 1vw 0vw;
+            padding: 10px 0px 10px 0px;
         }
 
         .tableHeaders {
@@ -220,35 +237,32 @@
             font-weight: bold;
             text-align: right;
             font-family: 'Hind Siliguri', sans-serif;
+            font-size: 12px;
         }
 
         .btnDelete:hover {
-            color: #e83b52;
+            color: #ff758a;
         }
 
         .cellPI {
             text-align: right;
             width: 15%;
-            padding: 1.5vw 0vw 1.5vw 0vw;
         }
 
         .cellWidth {
             width: 55%;
-            padding: 0vw;
+            padding: 0px;
         }
         
-        .pinkHeadline {
-            color: #e83b52;
-        }
 
         .cellsProgressBar {
             background-color: white;
-            padding: 0vw;
+            padding: 0px;
             position: relative;
         }
 
         .divProgressBar {
-            background-color: #e83b52;
+            background-color: white;
             color: #4f4d4b;
             font-weight: bold;
             text-align: center;

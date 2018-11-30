@@ -18,38 +18,31 @@
 <body>
 <header id="headerOne">	
 	<div id="divLogo">
-		<img id="imgLogo" src="https://i.pinimg.com/564x/bc/ff/2e/bcff2ecc7e689aae7725dfeb8748970a.jpg" alt="smiling carrot">
 		<h2 id="headlineLogo">PLANTY</h2>
 		<p id="paragLogo">Your personal nutrition tracker</p>
 	</div>
 
-	<nav>
+	<nav id="navUl">
 		<ul id="ulNav">
-			<li class="liNav"><a class="aNav" href="">LOG IN</a></li>
-			<li class="liNav"><a class="aNav" href="">SIGN UP</a></li>
+			<li class="liNav"><a class="aNav" href="">ABOUT</a></li>
 			<li class="liNav"><a class="aNav" href="">CONTACT</a></li>
+			<li class="liNav"><a class="aNav" href="">LOG IN</a></li>
 		</ul>
 	</nav>
 </header>
 
 <main id="mainOne">
 	<div id="divLogIn">
-		<h2>WELCOME TO THE PLANTY'S WORLD!</h2>
-		<p>Please log in first.</p>
-		<br>
+		<h2>LOG IN TO PLANTY</h2>
 		<form id="formLogIn">
 			Name:
 			<input class="inputs" id="inputName" type="text" name="name" placeholder="Please enter your name">
 			<br>
-			<br>
 			E-mail:
 			<input class="inputs" id="inputEmail" type="E-mail" name="email" placeholder="Please enter your E-mail">
 			<br>
-			<br>
-			<br>
 			<button class="btns" id="btnLogIn" type="button" onclick="logIn()">Log in</button> 
 			<p id="messageFillIn"></p>
-			<br>
 		</form>
 	</div>
 
@@ -57,7 +50,6 @@
 		<h2 id="personalGreeting">HI!</h2>
 		<p>What are your daily nutritional requirements?</p>
 		<h3>Let's find out!</h3>
-		<br>
 		<form id="formPersonalInfo">
 			<table id="tablePersonalInfo">
 				<tr>
@@ -108,11 +100,8 @@
 					</td>
 				</tr>
 			</table>
-			<br>
-			<br>
 			<button class="btns" id="btnCalculate" type="button" onclick="calculate()">Calculate</button>
 			<p id="messageFillIn2"></p>
-			<br>
 		</form>
 	</div>
 
@@ -238,28 +227,20 @@
 				<td id="reqNa"></td>
 			</tr>
 		</table>
-		<br>
-		<br>
-		<button class="btns" id="btnNext" type="button" onclick="next()">Next</button>
-		<br>
-		<br>		
+		<button class="btns" id="btnNext" type="button" onclick="next()">Next</button>		
 	</div>
 
 	<div id="divQuestion">
 		<h2 id="personalQuestion">, WHAT HAVE YOU EATEN TODAY?</h2>
 		<p>Have you met your nutritional needs?</p>
 		<h3>Let's find out!</h3>
-		<br>
 		<button class="btns" id="btnCheckMyDay" type="button" onclick="checkMyDay()">Check</button>
-		<br>
-		<br>
 	</div>
 
-	<div id="container">
+
 
 	<div id="divFoodSelection">
 		<h2>CHOOSE YOUR FOOD</h2>
-		<br>
 		<form id="formDailyFood">
 			Grains:
 			<select class="inputsDF" id="selectGrains" onchange="addFood(this)">
@@ -283,13 +264,12 @@
 				<option value="Oranges, raw, with peel">Oranges, raw, with peel</option>
 			</select>
 		</form>
-		<br>
-		<br>
+
 		<form id="formMyPlate">
 			<table id="tableMyPlate">
 				<tr>
-					<th class="tableHeadersNT" id="tableHeaderArticals">Artical</th>
-					<th class="tableHeadersNT" id="tableHeaderQuantity">Quantity</th>
+					<th class="tableHeadersNT pinkHeadline" id="tableHeaderArticals">Artical</th>
+					<th class="tableHeadersNT pinkHeadline" id="tableHeaderQuantity">Quantity</th>
 					<th class="tableHeadersNT" id="tableHeaderGrams"></th>
 					<th class="tableHeadersNT" id="tableHeaderDelete"></th>
 				</tr>
@@ -298,7 +278,6 @@
 			<p class="pinkHeadline">Show me my daily nutritional profile</p>
 			<button class="btns" id="btnTracking" type="button" onclick="tracking()">Show me</button>
 			<p id="messageFillIn3"></p>
-			<br>
 		</form>
 	</div>
 
@@ -424,19 +403,15 @@
 				<td id="Na" class="cellsProgressBar"><div class="divProgressBar"></div></td>
 			</tr>
 		</table>
-		<br>
-		<br>
 		<button class="btns" id="btnAddMore" type="button" onclick="addMoreFood()">Add More Food</button>
-		<br>
-		<br>
 	</div>
 
-	</div>
+	
 </main>
 
 <footer id="footerOne">
-	<h4>&copy; 2018 &nbsp;&nbsp;PLANTY</h4>
-	<p><small><span id="spanFooter">DESIGNED & DEVELOPED BY: <a id="portfolioLink" href="https://codepen.io/tanjamarathon/full/ePExRE/" target="_blanck">Tanja Veljanovska Saveska</a></span></small></p>	
+	<p>&copy; 2018 &nbsp;<span id="spanFooter">PLANTY</span>.&nbsp;&nbsp;</p>
+	<p>DESIGNED & DEVELOPED BY: <a id="portfolioLink" href="https://codepen.io/tanjamarathon/full/ePExRE/" target="_blanck">Tanja Veljanovska Saveska</a></p>	
 </footer>
 
 	<script src="planty_script.js"></script>
