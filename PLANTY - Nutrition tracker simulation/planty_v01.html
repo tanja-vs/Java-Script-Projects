@@ -242,13 +242,15 @@
 	<div id="divFoodSelection">
 		<h2>CHOOSE YOUR FOOD</h2>
 		<form id="formDailyFood">
-			Grains:
+			<span class="minSpan">Grains:
 			<select class="inputsDF" id="selectGrains" onchange="addFood(this)">
 				<option value=""></option>
 				<option value="Oats, raw">Oats, raw</option>
 				<option value="Rice, raw">Rice, raw</option>
 				<option value="Quinoa, raw">Quinoa, raw</option>
 			</select>
+			</span>
+			<span class="minSpan">
 			Vegetables:
 			<select class="inputsDF" id="selectVegetables" onchange="addFood(this)">
 				<option value=""></option>
@@ -256,6 +258,8 @@
 				<option value="Carrots, raw">Carrots, raw</option>
 				<option value="Potatos, raw, skin">Potatos, raw, skin</option>
 			</select>
+			</span>
+			<span class="minSpan">
 			Fruits:
 			<select class="inputsDF" id="selectFruits" onchange="addFood(this)">
 				<option value=""></option>
@@ -263,6 +267,7 @@
 				<option value="Bananas, raw">Bananas, raw</option>
 				<option value="Oranges, raw, with peel">Oranges, raw, with peel</option>
 			</select>
+			</span>
 		</form>
 
 		<form id="formMyPlate">
@@ -275,7 +280,7 @@
 				</tr>
 			</table>
 			<br>
-			<p class="pinkHeadline">Show me my daily nutritional profile</p>
+			<p><small>Show me my daily nutritional profile</small></p>
 			<button class="btns" id="btnTracking" type="button" onclick="tracking()">Show me</button>
 			<p id="messageFillIn3"></p>
 		</form>
@@ -411,7 +416,7 @@
 
 <footer id="footerOne">
 	<p>&copy; 2018 &nbsp;<span id="spanFooter">PLANTY</span>.&nbsp;&nbsp;</p>
-	<p>DESIGNED & DEVELOPED BY: <a id="portfolioLink" href="https://codepen.io/tanjamarathon/full/ePExRE/" target="_blanck">Tanja Veljanovska Saveska</a></p>	
+	<p id="developedSignature">DESIGNED & DEVELOPED BY: <a id="portfolioLink" href="https://codepen.io/tanjamarathon/full/ePExRE/" target="_blanck">Tanja Veljanovska Saveska</a></p>	
 </footer>
 
 	<script src="planty_script.js"></script>

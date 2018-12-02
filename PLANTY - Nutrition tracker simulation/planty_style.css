@@ -1,7 +1,7 @@
 		#body {
 			background-color: white;
-			margin: 0vw;
-			padding: 0vw;
+			margin: 0px;
+			padding: 0px;
         }
 
         #mainOne {
@@ -96,7 +96,7 @@
             border-radius: 50px;
             width: 300px;
             margin-top: 50px;
-			padding: 25px 50px 25px 30px;
+			padding: 25px 50px 25px 50px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -112,6 +112,7 @@
             justify-content: center;
             align-items: center;
             margin-bottom: 25px;
+            
         }
 
         #divFoodSelection {
@@ -219,7 +220,7 @@
         }
 
         #tableHeaderArticals {
-            width: 55%;
+            width: 45%;
         }
 
         #tableHeaderQuantity {
@@ -235,7 +236,6 @@
             border: none;
             color: #4f4d4b;
             font-weight: bold;
-            text-align: right;
             font-family: 'Hind Siliguri', sans-serif;
             font-size: 12px;
         }
@@ -246,7 +246,7 @@
 
         .cellPI {
             text-align: right;
-            width: 15%;
+            width: 20%;
         }
 
         .cellWidth {
@@ -271,6 +271,59 @@
             bottom: 0;
             left: 0;
             width: 0%;
+        }
+
+        .pinkHeadline {
+            color: #ff758a;
+        }
+
+        @media only screen and (max-width: 600px) {
+            #headlineLogo {
+                font-size: 20px;
+                margin-left: 15px;
+            }
+
+            #paragLogo {
+                display: none;
+            }
+
+            #ulNav {
+                margin-right: 15px;
+            }
+
+            .aNav {
+                font-size: 11px;
+            }
+
+            #divLogIn, #divPersonalInfo, #divDailyRequirement, #divQuestion, #divFoodSelection, #divNutritionTracker {
+                width: 85%;
+                padding: 25px;
+            }
+
+            #tableDailyRequirement, #tableMyPlate, #tableNutritionTracker, #tablePersonalInfo {
+                width: 100%;
+            }
+
+            #footerOne {
+                font-size: 9px;
+                flex-direction: column;
+            }
+
+            #portfolioLink: {
+                font-size: 9px;
+            }
+
+            #container {
+                flex-direction: column;
+                width: 60%;
+            }
+
+            .minSpan {
+                display: block;
+                text-align: right;
+                margin-right: 45px;
+            }
+
         }
 
         
